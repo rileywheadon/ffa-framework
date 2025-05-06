@@ -16,10 +16,9 @@ Alternatively, work on adding more features/tests to the framework.
 
 ## Todo
 
-- [ ] Implement Pettitt test
-- [ ] Test Pettitt implementation
-- [ ] Implement MKS test
-- [ ] Test MKS implementation
+- [ ] Implement testing framework
+- [ ] Implement decision points from the CLI
+- [ ] Publish documentation
 
 ## Notes
 

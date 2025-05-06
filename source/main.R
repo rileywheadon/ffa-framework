@@ -7,16 +7,25 @@ library(ggplot2)
 library(patchwork)
 library(glue)
 library(rmarkdown)
+library(tinytex)
+library(tools)
+library(yaml)
 
 
 ### Load data for FFA ###
 
 
-# NOTE: Make sure to set data_folder and csv_file to the correct foler on your computer
-data_folder <- "~/Code/ffa-framework/data/"
-csv_file <- "Application_3.1.csv"
-csv_path <- paste(data_folder, csv_file, sep="")
+# Load configuration file
+config <- yaml::read_yaml("config.yml")
+
+# Load data from the given CISV file
+csv_path <- paste(config$data_folder, config$csv_file, sep="")
 csv_data <- read.csv(csv_path, header = TRUE)
+
+# Create reports directory for this data file if it doesn't already exist
+csv_file_name <- tools::file_path_sans_ext(config$csv_file)
+report_path <- paste(config$report_folder, csv_file_name, sep="")
+if (!dir.exists(report_path)) { dir.create(report_path) }
 
 
 ### Data Preprocessing ###
@@ -50,21 +59,21 @@ window_step_eda <- 5      # Window step in MW-MK test
 
 # Perform the Pettitt test for abrupt changes in the mean
 source("pettitt_test.R")
-pettitt_report <- pettitt_test(data, alpha_eda)
+pettitt_report <- pettitt_test(data)
 
 # Perform the Mann-Kendall-Sneyers test
 source("mks_test.R")
-mks_report <- mks_test(data, alpha_eda)
+mks_report <- mks_test(data)
 
 
 ### RMarkdown Report Generation ###
 
 
-report <- glue("
+rmd_report <- glue("
 
 # Report
 
-Dataset: {csv_file}
+Dataset: {config$csv_file}
 
 ## Data Preprocessing
 
@@ -75,13 +84,24 @@ Dataset: {csv_file}
 
 ### Mann-Whitney-Pettitt Test
 
-The **Mann-Whitney-Pettitt** test is used to detect change points in the AMS data.
+The **Mann-Whitney-Pettitt** test is used to detect abrupt changes in the AMS data.
 
 {pettitt_report}
 
 ![](pettitt-test.png)
 
+### Mann-Kendall-Sneyers Test
+
+The **Mann-Kendall-Sneyers** test is used to detect the beginning of a change in trend.
+
+{mks_report}
+
+![](mks-test.png)
+
 ")
 
-writeLines(report, "eda/report.Rmd")
-render("eda/report.Rmd", output_format = "html_document")
+# Render the report as HTML and PDF
+rmd_report_path <- paste(report_path, "report.Rmd", sep ="/")
+writeLines(rmd_report, rmd_report_path)
+rmarkdown::render(rmd_report_path, output_format = "html_document")
+rmarkdown::render(rmd_report_path, output_format = "pdf_document")

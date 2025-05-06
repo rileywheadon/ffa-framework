@@ -1,3 +1,9 @@
+# Load configuration file and get the report path
+config <- yaml::read_yaml("config.yml")
+csv_file_name <- tools::file_path_sans_ext(config$csv_file)
+report_path <- paste(config$report_folder, csv_file_name, sep="")
+
+
 # Compute the U-statistic for an index t and a list of means ams
 u_statistic <- function(ams, t) {
 
@@ -16,7 +22,7 @@ u_statistic <- function(ams, t) {
 }
 
 # Conduct the Pettitt test on a given dataframe
-pettitt_test <- function(data, alpha) {
+pettitt_test <- function(data) {
 
 	# Get the annual max streaflow column without NaN values
 	filtered_data <- data[!is.na(data$max), ]
@@ -31,7 +37,7 @@ pettitt_test <- function(data, alpha) {
 	K <- max(Ut)
 
 	# Compute the theoretical K-statistic at given significance
-	K_alpha <- (-log(alpha)*((n^3)+(n^2))/6)^0.5;
+	K_alpha <- (-log(config$alpha_eda)*((n^3)+(n^2))/6)^0.5;
 
 	# Plot the results
 	df <- data.frame(Years = years, Ut = Ut, Flow = ams[1:(n-1)])
@@ -43,7 +49,7 @@ pettitt_test <- function(data, alpha) {
 	# Generate a report on the results of the statistical test 
 	change_year <- df$Years[which.max(df$Ut)]
 
-	if (p_value < alpha) {
+	if (p_value < config$alpha_eda) {
 		result <- "reject the null hypothesis"
 		conclusion <- glue("there is a potential change point in {change_year}")
 	} else {
@@ -53,12 +59,13 @@ pettitt_test <- function(data, alpha) {
 
 	return(glue("
 	 - The computed K-statistic is {K} and the corresponding p-value is {p_value}.
-	 - At a significance level of {alpha}, we {result} and conclude {conclusion}.
+	 - At a significance level of {config$alpha_eda}, we {result}.
+	 - Therefore, we conclude that {conclusion}.
 	"))
 
 }
 
-plot_pettitt_test <- function(df, K_Alpha) {
+plot_pettitt_test <- function(df, K_alpha) {
 
 	# Get the length and change index
 	n <- length(df$Years)
@@ -93,7 +100,7 @@ plot_pettitt_test <- function(df, K_Alpha) {
 	p1 <- ggplot(df, aes(x = Years, y = Ut)) +
 		geom_point(aes(color = "black")) +
 		geom_hline(
-			aes(yintercept = K_Alpha, color = "red"),
+			aes(yintercept = K_alpha, color = "red"),
 			linewidth = 1.2,
 			linetype = "dashed",
 		) +
@@ -162,7 +169,7 @@ plot_pettitt_test <- function(df, K_Alpha) {
 		)
 
 	p1 / p2
-	ggsave("pettitt-test.png", path="eda", width=10, height=8)
+	ggsave("pettitt-test.png", path=report_path, width=10, height=8, bg="white")
 
 }
 

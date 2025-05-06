@@ -1,0 +1,8 @@
+data_folder: "~/Code/ffa-framework/data/"       # Path to folder of data files
+csv_file: "Application_3.1.csv"                 # Name of CSV file in data_path
+report_folder: "~/Code/ffa-framework/reports/"  # Path for generating reports
+alpha_eda: 0.05                                 # Significance level for EDA
+n_sim_eda: 10000                                # Number of simulations in BB-MK test
+window_length_eda: 10                           # Window length in MW-MK test
+window_step_eda: 5                              # Window step in MW-MK test
+
