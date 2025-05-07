@@ -1,5 +1,7 @@
 # FFA Framework
 
+![](../resources/ffa-framework.png)
+
 Using framework-eda.md we identify one of four possible trend cases:
 
 - No trend (i.e. no non-stationarity)

@@ -2,7 +2,7 @@
 
 ![](../resources/eda-framework.png)
 
-## Identification of Change Points in AMS Mean
+## 1: Identification of Change Points in AMS Mean
 
 - **AMS** stands for annual maximum streamflow.
 - Define $\text{sign} (x)$ to be $1$ if $x > 0$, $0$ if $x = 0$, and $-1$ otherwise.
@@ -56,7 +56,7 @@ Next, we need to find the **Regressive Series** $UB_{t}$. To do this, reverse $y
 
 Next, plot both $UF_{t}$ and $UB_{t}$ with confidence bounds. An intersection point between the two curves that lies outside the confidence indicates the start of the trend.
 
-## Identification of Trends in AMS Mean
+## 2: Identification of Trends in AMS Mean
 
 ### Mann-Kendall (MK) Test
 
@@ -89,8 +89,6 @@ $$
 3. Resample from the original time series in blocks, without replacement, and estimate the test statistic for each simulated sample.
 4. Derive the distribution of the test statistic from the trend-free resampled series.
 5. Estimate the significance of the observed test statistic (from step 1) using the simulated distribution (from step 3). If the original test statistic lies outside the bounds of the simulated distribution, then the trend is significant.
-
-## Identification of Trends in AMS Variance
 
 ### PP Test
 
