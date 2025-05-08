@@ -34,7 +34,7 @@ If $p < \alpha$, we reject the null hypothesis and conclude that there is an abr
 Given a time series $y_{1}, \dots, y_{n}$, we compute the following test statistic:
 
 $$
-S_{t} = \sum_{i=2}^{t} \sum_{j=1}^{i-1} \mathbb{I}(y_{i} > y_{j})
+S_{t} = \sum_{i=i}^{t} \sum_{j=1}^{i-1} \mathbb{I}(y_{i} > y_{j})
 $$
 
 Then, we compute the the **Progressive Series** $UF_{t}$:
@@ -60,27 +60,11 @@ Next, plot both $UF_{t}$ and $UB_{t}$ with confidence bounds. An intersection po
 
 ### Mann-Kendall (MK) Test
 
-The MK test is used to determine if the AMS means have a statistically significant trend given a time series $y_{t}$.
-
-$$
-S = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \text{sign} (y_{j} - y_{i}), \quad \tau  = \frac{2S}{n(n-1)}
-$$
-
-Under the null hypothesis of no trend, $\tau \sim \mathcal{N}(0, \frac{n(n-1)(2n+5)}{18})$.
+See [here](https://vsp.pnnl.gov/help/vsample/design_trend_mann_kendall.htm).
 
 ### Spearman Test
 
-The Spearman test is used to determine **Serial Correlation** (a dependence between the rankings of random variables). Let $X_{t}$ be the time series and $Y_{t}$ the AMS. Let $R$ be a ranking function (note that $R = 1$ is the smallest value). Then, let $d_{i} = R[X_{i}] - R[Y_{i}]$ be the difference in rank between observations. Compute:
-
-$$
-r_{s} = 1 - \frac{6 \sum_{}^{} d_{i}^2}{n(n^2-1)}
-$$
-
-assuming that there are no identical values in $X_{t}$ and $Y_{t}$. The test statistic $t$ is as follows:
-
-$$
-t = r_{s} \sqrt{\frac{n-2}{1 - r_{s}^2}} \sim T(n-2)
-$$
+TBD. See [here](https://en.wikipedia.org/wiki/Autocorrelation) and the code.
 
 ### Block-Bootstrap Mann-Kendall (BB-MK) Test
 

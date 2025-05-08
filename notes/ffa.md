@@ -6,7 +6,7 @@ Porting scripts to R:
 
 - Write statistical tests from scratch.
 - Use `ggplot2` as a plotting framework.
-- Write unit tests to compare results with MATLAB.
+- Write unit tests using `testthat`.
 
 Then, once I have a good framework in R, improve MATLAB code.
 
@@ -18,35 +18,43 @@ Alternatively, work on adding more features/tests to the framework.
 
 - Write code that *mirrors the mathematics*.
 - Focus on building a framework for practical use, without academic jargon.
-- Ensure that the user has all information possible before taking the next step.
+- Ensure that the user will have as much information as they want. 
 - Prevent coupling whenever possible by writing standalone R scripts.
+- Follow this style guide: http://adv-r.had.co.nz/Style.html
 
 ## Design
 
-Each of the statistical tests conducted during EDA are independent R scripts:
+Each of the statistical tests conducted during EDA can be run independently:
 
-- Command line arguments: 
-    - path to a data file
-    - directory for outputting an image (optional)
-    - path to a configuration file (optional)
-    - list of years at which to split the data (optional, only for some tests)
-- Returns a text stream with test statistic, p-value, and conclusion.
-- Saves figure to directory (or does nothing if directory isn't specified).
-
-Report generation scripts simply call the statistical test scripts. 
+- Run the tests using `Rscript run-stats.R`
+- `-n`: name of the statistical test to run (required)
+- `-c`: path to configuration file (required)
+- `-v`: verbosity level: statistical information, mathematics, code
+- `-s`: years on which to split the data (only for some tests)
 
 ## Todo
 
-- [ ] Convert `change_points.R` to a standalone script (don't use `source`)
-- [ ] Add decision point selection in `main.R`
-- [ ] Implement MK test as standalone script
-- [ ] Implement Spearman test as standalone script
-- [ ] Implement BB-MK test as standalone script
-- [ ] Implement PP test as standalone script
-- [ ] Implement KPSS test as standalone script
-- [ ] Implement White test as standalone script
-- [ ] Implement MW-MK test as standalone script
-- [ ] Implement Sen's trend estimator as standalone script
+Improvements to `run-stats.R`
+
+- [ ] Save plots created with `run-stats.R` to a subdirectory in the reports folder
+- [ ] Add `[name]-report.rmd` files and implement report generation
+- [ ] Add verbosity options for report generation (stats, math, code)
+- [ ] Add data splitting for the non-change-point tests
+- [ ] Write unit tests using `testthat` for all data files and splits
+
+Finishing the EDA scripts
+
+- [ ] Implement PP test scripts
+- [ ] Implement KPSS test scripts
+- [ ] Implement White test scripts
+- [ ] Implement MW-MK test scripts
+- [ ] Implement Sen's trend estimator scripts
+
+Implementing the full EDA pipeline
+
+- [ ] Create the EDA pipeline by calling `run-stats.R` repeatedly
+- [ ] Implement the decision point for change points in `main.R`
+- [ ] Generate a big report by combining the `[name]-report.rmd` files
 
 ## Notes
 
