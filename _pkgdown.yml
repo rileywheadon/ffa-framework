@@ -16,13 +16,7 @@ figures:
   fig.height: 8
 navbar:
   structure:
-    left:
-      - home
-      - reference
-      - vignettes
-      - wiki
-      - matlab
-      - license
+    left: [home, reference, vignettes, wiki, matlab, news]
   components:
     vignettes:
       text: "Vignettes"
@@ -72,3 +66,4 @@ navbar:
     matlab:
       text: "MATLAB Version"
       href: "articles/matlab-version.html"
+
