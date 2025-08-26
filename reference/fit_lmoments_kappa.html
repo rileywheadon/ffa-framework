@@ -29,11 +29,11 @@ using Newton-Raphson iteration."></head><body>
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -45,15 +45,15 @@ using Newton-Raphson iteration."></head><body>
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-wiki" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Wiki</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul></li>
@@ -107,7 +107,7 @@ Must be strictly positive, finite, and not missing.</p></dd>
     <p>First, the sample L-moments of the data are computed using <code><a href="utils_sample_lmoments.html">utils_sample_lmoments()</a></code>.
 Then, the <code><a href="https://rdrr.io/r/stats/optim.html" class="external-link">stats::optim()</a></code> function is used to determine the parameters
 by minimizing the euclidian distance between the sample and theoretical L-moment
-ratios. The implementation of this routine is based on the deprecated <code>homtest</code>
+ratios. The implementation of this routine is based on the deprecated 'homtest'
 package, formerly available at <a href="https://CRAN.R-project.org/package=homtest" class="external-link">https://CRAN.R-project.org/package=homtest</a>.</p>
     </div>
     <div class="section level2">

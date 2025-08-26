@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Exploratory Data Analysis (EDA) • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Exploratory Data Analysis (EDA)">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Exploratory Data Analysis (EDA)</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/eda-introduction.Rmd" class="external-link"><code>vignettes/articles/eda-introduction.Rmd</code></a></small>
@@ -101,9 +101,6 @@
 
     
     
-<div class="section level2">
-<h2 id="introduction-to-exploratory-data-analysis-eda">Introduction to Exploratory Data Analysis (EDA)<a class="anchor" aria-label="anchor" href="#introduction-to-exploratory-data-analysis-eda"></a>
-</h2>
 <p>The EDA module of the FFA Framework is used to evaluate whether the
 available evidence supports the assumption of stationarity. To do this,
 the EDA module applies a structured sequence of statistical tests to the
@@ -119,9 +116,9 @@ heteroskedasticity and trends in standard deviation).</li>
 </ol>
 <p><strong><em>The primary goal of EDA is to inform the choice between
 stationary and nonstationary FFA.</em></strong></p>
-<div class="section level3">
-<h3 id="stationary-and-nonstationary-ffa">Stationary and Nonstationary FFA<a class="anchor" aria-label="anchor" href="#stationary-and-nonstationary-ffa"></a>
-</h3>
+<div class="section level2">
+<h2 id="stationary-and-nonstationary-ffa">Stationary and Nonstationary FFA<a class="anchor" aria-label="anchor" href="#stationary-and-nonstationary-ffa"></a>
+</h2>
 <p>Prior to performing FFA, it is necessary to choose between a
 stationary (S-FFA) and nonstationary (NS-FFA) approach. When using
 S-FFA, it is assumed that the time series is independent and identically
@@ -133,15 +130,15 @@ that NS-FFA may be necessary.</p>
 FFA.</div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="the-eda-workflow">The EDA Workflow<a class="anchor" aria-label="anchor" href="#the-eda-workflow"></a>
-</h3>
+<div class="section level2">
+<h2 id="the-eda-workflow">The EDA Workflow<a class="anchor" aria-label="anchor" href="#the-eda-workflow"></a>
+</h2>
 <div class="float">
 <img src="../reference/figures/eda-overview.png" alt="Diagram showing current EDA framework."><div class="figcaption">Diagram showing current EDA framework.</div>
 </div>
-<div class="section level4">
-<h4 id="identifying-change-points">Identifying Change Points<a class="anchor" aria-label="anchor" href="#identifying-change-points"></a>
-</h4>
+<div class="section level3">
+<h3 id="identifying-change-points">Identifying Change Points<a class="anchor" aria-label="anchor" href="#identifying-change-points"></a>
+</h3>
 <p>A change point is an abrupt shift (jump) or temporal pattern switch
 (trend change) in a time series. Change points indicate inhomogeneous
 periods (nonstationarity), meaning a single model may not represent the
@@ -156,9 +153,9 @@ points, while type 2 errors can cause true change points to go
 unnoticed. Therefore, it is always important to use station-specific
 knowledge in addition to the results of these tests.</p>
 </div>
-<div class="section level4">
-<h4 id="identifying-time-dependence">Identifying Time Dependence<a class="anchor" aria-label="anchor" href="#identifying-time-dependence"></a>
-</h4>
+<div class="section level3">
+<h3 id="identifying-time-dependence">Identifying Time Dependence<a class="anchor" aria-label="anchor" href="#identifying-time-dependence"></a>
+</h3>
 <p>While there are many types of time dependence, the FFA framework
 focuses on identifying linear trends in the mean and/or variability
 using two groups of statistical tests.</p>
@@ -183,7 +180,6 @@ applied to trends in the mean and the variability. Once a linear trend
 has been estimated, its fit can be assessed using the runs test, which
 checks for randomness in the residuals. If the residuals are non-random,
 a linear trend may not be suitable for the data.</p>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -124,7 +124,7 @@ construction in 1972. Data for this station is provided as
 <code>CAN-08NH021.csv</code> in the <code>ffaframework</code>
 package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rileywheadon.github.io/ffa-framework/" class="external-link">ffaframework</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rileywheadon.github.io/ffa-framework/">ffaframework</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/data_local.html">data_local</a></span><span class="op">(</span><span class="st">"CAN-08NH021.csv"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>

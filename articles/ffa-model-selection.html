@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Model Selection • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Model Selection">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Model Selection</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/ffa-model-selection.Rmd" class="external-link"><code>vignettes/articles/ffa-model-selection.Rmd</code></a></small>
@@ -101,9 +101,6 @@
 
     
     
-<div class="section level2">
-<h2 id="model-selection">Model Selection<a class="anchor" aria-label="anchor" href="#model-selection"></a>
-</h2>
 <p>This module selects a statistical model for S-FFA or NS-FFA based on
 the annual maximum series.</p>
 <ul>
@@ -123,9 +120,9 @@ with the L-moments of various distribution families.</p>
 component following <a href="https://doi.org/10.1016/j.jhydrol.2022.128186" class="external-link">Vidrio-Sahagún and
 He (2022)</a>. This decomposed sample is then used for distribution
 selection, as in S-FFA.</p>
-<div class="section level3">
-<h3 id="an-introduction-to-l-moments">An Introduction to L-Moments<a class="anchor" aria-label="anchor" href="#an-introduction-to-l-moments"></a>
-</h3>
+<div class="section level2">
+<h2 id="an-introduction-to-l-moments">An Introduction to L-Moments<a class="anchor" aria-label="anchor" href="#an-introduction-to-l-moments"></a>
+</h2>
 <p><strong>Definition 1</strong>: The <strong><span class="math inline">\(k\)</span>-th Order Statistic</strong> of a
 statistical sample is its <span class="math inline">\(k\)</span>-th
 smallest value.</p>
@@ -149,9 +146,9 @@ as:</p>
 b_{r} = \frac{1}{n} \sum_{i=1}^{r} x_{i:n} \left(\frac{i-1}{n-1}\right)
 ^{r}
 \]</span></p>
-<div class="section level4">
-<h4 id="sample-l-moments-from-pwms-and-l-moment-ratios">Sample L-Moments (from PWMs) and L-Moment Ratios<a class="anchor" aria-label="anchor" href="#sample-l-moments-from-pwms-and-l-moment-ratios"></a>
-</h4>
+<div class="section level3">
+<h3 id="sample-l-moments-from-pwms-and-l-moment-ratios">Sample L-Moments (from PWMs) and L-Moment Ratios<a class="anchor" aria-label="anchor" href="#sample-l-moments-from-pwms-and-l-moment-ratios"></a>
+</h3>
 <p>The first four sample L-moments can be computed as linear
 combinations of the PWMs:</p>
 <p><span class="math display">\[
@@ -185,9 +182,9 @@ distributions with three parameters is a function of the shape parameter
 <span class="math inline">\(\kappa\)</span>. The notation <span class="math inline">\(\tau_{3}(\kappa)\)</span> and <span class="math inline">\(\tau_{4}(\kappa)\)</span> refers to the L-skewness
 and L-kurtosis <em>curves</em> for three parameter distributions.</p>
 </div>
-<div class="section level4">
-<h4 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
+</h3>
 <p>Shown below are the L-moment curves of the GEV, GLO, GNO, PE3/LP3,
 and WEI distributions as well as the L-moment ratios of the two
 parameter distributions GUM and NOR/LNO. This L-moment diagram depicts
@@ -198,27 +195,27 @@ data.</p>
 <p><img src="../reference/figures/plot-lmom.svg"></p>
 </div>
 </div>
+<div class="section level2">
+<h2 id="selection-metrics">Selection Metrics<a class="anchor" aria-label="anchor" href="#selection-metrics"></a>
+</h2>
 <div class="section level3">
-<h3 id="selection-metrics">Selection Metrics<a class="anchor" aria-label="anchor" href="#selection-metrics"></a>
+<h3 id="l-distance">1. L-Distance<a class="anchor" aria-label="anchor" href="#l-distance"></a>
 </h3>
-<div class="section level4">
-<h4 id="l-distance">1. L-Distance<a class="anchor" aria-label="anchor" href="#l-distance"></a>
-</h4>
 <p>The Euclidean distance between the sample <span class="math inline">\((t_3, t_4)\)</span> and theoretical <span class="math inline">\((\tau_3, \tau_4)\)</span> for each candidate
 distribution. For 3-parameter distributions, this is the
 <strong>minimum</strong> distance along their L-moment ratio curve.</p>
 </div>
-<div class="section level4">
-<h4 id="l-kurtosis">2. L-Kurtosis<a class="anchor" aria-label="anchor" href="#l-kurtosis"></a>
-</h4>
+<div class="section level3">
+<h3 id="l-kurtosis">2. L-Kurtosis<a class="anchor" aria-label="anchor" href="#l-kurtosis"></a>
+</h3>
 <p>The L-kurtosis method is only used for three-parameter probability
 distributions. First, the shape parameter <span class="math inline">\(\kappa^{*}\)</span> such that <span class="math inline">\(t_{3} = \tau _{3}(\kappa ^{*})\)</span> is
 identified. Then, the difference between the sample L-kurtosis and the
 theoretical L-kurtosis is computed using the metric <span class="math inline">\(|\tau_{4}(\kappa ^{*}) - t_{4} |\)</span>.</p>
 </div>
-<div class="section level4">
-<h4 id="z-statistic">3. Z-statistic<a class="anchor" aria-label="anchor" href="#z-statistic"></a>
-</h4>
+<div class="section level3">
+<h3 id="z-statistic">3. Z-statistic<a class="anchor" aria-label="anchor" href="#z-statistic"></a>
+</h3>
 <p>The Z-statistic selection metric is calculated as follows (for
 three-parameter distributions):</p>
 <ol style="list-style-type: decimal">
@@ -254,9 +251,9 @@ Z-statistic.</p></li>
 </ol>
 </div>
 </div>
-<div class="section level3">
-<h3 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
-</h3>
+<div class="section level2">
+<h2 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
+</h2>
 <p>When nonstationarity is detected, the annual maximum series is
 decomposed before model selection. We consider three nonstationary
 scenarios that can be identified in EDA:</p>
@@ -265,12 +262,12 @@ scenarios that can be identified in EDA:</p>
 <li>Trend in standard deviation only.</li>
 <li>Trend in both mean and standard deviation.</li>
 </ol>
+<div class="section level3">
+<h3 id="decomposition-steps">Decomposition Steps<a class="anchor" aria-label="anchor" href="#decomposition-steps"></a>
+</h3>
 <div class="section level4">
-<h4 id="decomposition-steps">Decomposition Steps<a class="anchor" aria-label="anchor" href="#decomposition-steps"></a>
+<h4 id="scenario-1-trend-in-mean">Scenario 1: Trend in mean<a class="anchor" aria-label="anchor" href="#scenario-1-trend-in-mean"></a>
 </h4>
-<div class="section level5">
-<h5 id="scenario-1-trend-in-mean">Scenario 1: Trend in mean<a class="anchor" aria-label="anchor" href="#scenario-1-trend-in-mean"></a>
-</h5>
 <ol style="list-style-type: decimal">
 <li>Use <a href="eda-trend-ams-mean.html#sens-trend-estimator">Sen’s Trend
 Estimator</a> to approximate the slope <span class="math inline">\(b_1\)</span> and intercept <span class="math inline">\(b_0\)</span>.</li>
@@ -283,9 +280,9 @@ such that <span class="math inline">\(\min(\text{data}) =
 1\)</span>.</li>
 </ol>
 </div>
-<div class="section level5">
-<h5 id="scenario-2-trend-in-standard-deviation">Scenario 2: Trend in standard deviation<a class="anchor" aria-label="anchor" href="#scenario-2-trend-in-standard-deviation"></a>
-</h5>
+<div class="section level4">
+<h4 id="scenario-2-trend-in-standard-deviation">Scenario 2: Trend in standard deviation<a class="anchor" aria-label="anchor" href="#scenario-2-trend-in-standard-deviation"></a>
+</h4>
 <ol style="list-style-type: decimal">
 <li><p>Generate a time series of standard deviations using the moving
 windows method.</p></li>
@@ -302,9 +299,9 @@ g_{t} = \frac{(c_{1} \cdot  \text{Covariate} ) + c_{0}}{c_{0}}
 Scenario 1.</p></li>
 </ol>
 </div>
-<div class="section level5">
-<h5 id="scenario-3-trend-in-both-mean-and-standard-deviation">Scenario 3: Trend in both mean and standard deviation<a class="anchor" aria-label="anchor" href="#scenario-3-trend-in-both-mean-and-standard-deviation"></a>
-</h5>
+<div class="section level4">
+<h4 id="scenario-3-trend-in-both-mean-and-standard-deviation">Scenario 3: Trend in both mean and standard deviation<a class="anchor" aria-label="anchor" href="#scenario-3-trend-in-both-mean-and-standard-deviation"></a>
+</h4>
 <ol style="list-style-type: decimal">
 <li>Remove the linear trend in mean exactly as in Scenario 1.</li>
 <li>On that detrended series, generate a rolling‐window STD series and
@@ -312,7 +309,6 @@ fit its trend.</li>
 <li>Divide the detrended data by the time-varying scale factor <span class="math inline">\(g_{t}\)</span> (as in Scenario 2).</li>
 <li>Shift to preserve the series mean and ensure positivity.</li>
 </ol>
-</div>
 </div>
 </div>
 </div>

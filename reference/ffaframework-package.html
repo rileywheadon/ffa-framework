@@ -19,7 +19,7 @@ Detect statistically significant temporal trends in the mean and variability.
 select_*: Select a suitable probability distribution using the L-moments.
 fit_*: Fit parameters given a distribution and approach (S-FFA or NS-FFA).
 uncertainty_*: Quantify uncertainty by computing confidence intervals.
-model_assessment() evaluates model performance for using a variety of metrics.
+model_assessment() evaluates model performance using a variety of metrics.
 
 
 Additional utility functions for visualization and computation are also available:
@@ -62,7 +62,7 @@ Detect statistically significant temporal trends in the mean and variability.
 select_*: Select a suitable probability distribution using the L-moments.
 fit_*: Fit parameters given a distribution and approach (S-FFA or NS-FFA).
 uncertainty_*: Quantify uncertainty by computing confidence intervals.
-model_assessment() evaluates model performance for using a variety of metrics.
+model_assessment() evaluates model performance using a variety of metrics.
 
 
 Additional utility functions for visualization and computation are also available:
@@ -109,11 +109,11 @@ analysis."></head><body>
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -125,15 +125,15 @@ analysis."></head><body>
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-wiki" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Wiki</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul></li>
@@ -167,7 +167,7 @@ inform approach selection (S-FFA or NS-FFA):</p><ul><li><p>Detect statistically 
 <li><p><code>select_*</code>: Select a suitable probability distribution using the L-moments.</p></li>
 <li><p><code>fit_*</code>: Fit parameters given a distribution and approach (S-FFA or NS-FFA).</p></li>
 <li><p><code>uncertainty_*</code>: Quantify uncertainty by computing confidence intervals.</p></li>
-<li><p><code><a href="model_assessment.html">model_assessment()</a></code> evaluates model performance for using a variety of metrics.</p></li>
+<li><p><code><a href="model_assessment.html">model_assessment()</a></code> evaluates model performance using a variety of metrics.</p></li>
 </ol><p>Additional utility functions for visualization and computation are also available:</p><ul><li><p><code>data_*</code> methods load, transform, and decompose annual maximum series data.</p></li>
 <li><p><code>plot_*</code> methods produce diagnostic and summary plots.</p></li>
 <li><p><code>utils_*</code> methods implement distribution-specific computations.</p></li>
@@ -186,7 +186,7 @@ evidence of a linear trend in both the mean and variability (NS-FFA recommended)
 parameter estimation (e.g., L-moments and maximum likelihood), dataset decomposition,
 and uncertainty quantification (parametric bootstrap and profile likelihood). For
 an explanation of these methods, see the
-<a href="https://rileywheadon.github.io/ffa-framework/" class="external-link">FFA Framework wiki</a>.
+<a href="https://rileywheadon.github.io/ffa-framework/">FFA Framework wiki</a>.
 For examples, see the vignettes on exploratory data analysis and flood frequency
 analysis.</p>
     </div>
@@ -194,7 +194,7 @@ analysis.</p>
 
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Useful links:</p><ul><li><p><a href="https://rileywheadon.github.io/ffa-framework/" class="external-link">https://rileywheadon.github.io/ffa-framework/</a></p></li>
+    <div class="dont-index"><p>Useful links:</p><ul><li><p><a href="https://rileywheadon.github.io/ffa-framework/">https://rileywheadon.github.io/ffa-framework/</a></p></li>
 <li><p>Report bugs at <a href="https://github.com/rileywheadon/ffa-framework/issues" class="external-link">https://github.com/rileywheadon/ffa-framework/issues</a></p></li>
 </ul></div>
     </div>

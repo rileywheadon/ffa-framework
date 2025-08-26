@@ -42,12 +42,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -61,15 +61,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,33 +92,51 @@
 <div class="page-header"><h1 id="ffa-framework-wiki">FFA Framework Wiki<a class="anchor" aria-label="anchor" href="#ffa-framework-wiki"></a>
 </h1></div>
 <p>The <strong>FFA Framework</strong> is an open-source tool for flood frequency analysis (FFA) designed to support systematic and repeatable workflows for stationary and nonstationary analysis. Development is ongoing at the University of Calgary and the University of Saskatchewan in Canada.</p>
-<p>The most recent version of the framework is freely available as an <strong>R package</strong>. The <a href="https://zenodo.org/records/8012096" class="external-link">original version</a> was released as a stand-alone GUI with MATLAB source code and published in <a href="https://doi.org/10.1016/j.envsoft.2024.105940" class="external-link">Vidrio-Sahagún et al. (2024)</a>. For a list of changes from the MATLAB version, see <a href="articles/matlab-version.html">here</a>.</p>
+<p>The most recent version of the framework is freely available as an <a href="https://CRAN.R-project.org/package=ffaframework" class="external-link">R package</a>. The <a href="https://zenodo.org/records/8012096" class="external-link">original version</a> was released as a standalone GUI with MATLAB source code and published in <a href="https://doi.org/10.1016/j.envsoft.2024.105940" class="external-link">Vidrio-Sahagún et al. (2024)</a>. For a list of changes from the MATLAB version, see <a href="articles/matlab-version.html">here</a>.</p>
 <div class="section level2">
 <h2 id="installation-instructions">Installation Instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h2>
-<p><strong>Prerequisites</strong>: Install <a href="https://git-scm.com/downloads" class="external-link">Git</a> and <a href="https://www.r-project.org/" class="external-link">R</a> (v4.4.0 or later). Check that the installations were successful by executing the <code>git --version</code> and <code>R --version</code> commands in a terminal.</p>
-<p><strong>Note</strong>: Windows users may need to add Git and R to their <code>PATH</code> environment variable in order to run them from the command line. The default locations for Git and R are <code>C:\Program Files\Git\bin</code> and <code>C:\Program Files\R\R-4.5.0\bin</code> (replace “4.5.0” with the version of R you have installed). To update the <code>PATH</code>, edit the system environment variables from the settings menu.</p>
 <div class="section level3">
-<h3 id="instructions">Instructions<a class="anchor" aria-label="anchor" href="#instructions"></a>
+<h3 id="from-cran-recommended">From CRAN (Recommended)<a class="anchor" aria-label="anchor" href="#from-cran-recommended"></a>
 </h3>
 <ol style="list-style-type: decimal">
+<li><p>Ensure that <a href="https://www.r-project.org/" class="external-link">R</a> (v4.4.0 or later) is installed on your machine.</p></li>
+<li><p>Open an R session by executing the <code>R</code> command in a terminal.</p></li>
+<li><p>Run <code>install.packages("ffaframework")</code> from the R session.</p></li>
+<li><p>Exit the R session with <code><a href="https://rdrr.io/r/base/quit.html" class="external-link">q()</a></code>. The ‘ffaframework’ package is now installed and ready to use.</p></li>
+</ol>
+</div>
+<div class="section level3">
+<h3 id="development-version">Development Version<a class="anchor" aria-label="anchor" href="#development-version"></a>
+</h3>
+<p><span style="color: red;"><b>Warning</b>: The development version is updated frequently and may contain issues.</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Ensure that <a href="https://git-scm.com/" class="external-link">Git</a> and <a href="https://www.r-project.org/" class="external-link">R</a> (v4.4.0 or later) are installed on your machine.</p></li>
 <li><p>Open a terminal and navigate to the directory where you want to install the package.</p></li>
 <li>
-<p>Clone the Github repository by running the following command:</p>
+<p>Clone the Github repository by executing the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a> git clone https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>rileywheadon<span class="sc">/</span>ffa<span class="sc">-</span>framework.git</span></code></pre></div>
 </li>
 <li>
-<p>Open the <code>R</code> console. Then install and load the <code>devtools</code> package (if not already installed):</p>
+<p>Open an <code>R</code> session. Then install and load the <code>devtools</code> package (if not already installed):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a> <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a> <span class="fu">library</span>(devtools)</span></code></pre></div>
 </li>
 <li>
-<p>Install the <code>ffaframework</code> package:</p>
+<p>Install the ‘ffaframework’ package:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a> devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"~/path/to/ffa-package"</span>)</span></code></pre></div>
 <p>Replace <code>~/path/to/ffa-package</code> with the path to the cloned directory from step 2.</p>
 </li>
-<li><p>Exit the <code>R</code> console with <code><a href="https://rdrr.io/r/base/quit.html" class="external-link">q()</a></code>. The <code>ffaframework</code> package is now installed and ready to use.</p></li>
+<li><p>Exit the <code>R</code> session with <code><a href="https://rdrr.io/r/base/quit.html" class="external-link">q()</a></code>. The ‘ffaframework’ package is now installed and ready to use.</p></li>
 </ol>
+</div>
+<div class="section level3">
+<h3 id="troubleshooting-faq">Troubleshooting FAQ<a class="anchor" aria-label="anchor" href="#troubleshooting-faq"></a>
+</h3>
+<p><strong>How do I know if R is installed?</strong></p>
+<p>You can check your R version by executing the <code>R --version</code> command in a terminal.</p>
+<p><strong>I just installed R on Windows but the <code>R</code> command doesn’t work.</strong></p>
+<p>Windows users may need to add R to their <code>PATH</code> environment variable. The default location for R is <code>C:\Program Files\R\R-4.5.0\bin</code> (replace “4.5.0” with the version of R you have installed). To update the <code>PATH</code>, edit the system environment variables from the settings menu.</p>
 </div>
 </div>
 </div>

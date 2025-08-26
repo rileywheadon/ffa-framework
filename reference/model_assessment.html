@@ -33,11 +33,11 @@ metrics from stationary and nonstationary models should not be compared."></head
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -49,15 +49,15 @@ metrics from stationary and nonstationary models should not be compared."></head
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-wiki" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Wiki</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki"><li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul></li>
@@ -195,86 +195,86 @@ positions. Normalized for nonstationary models.</p></li>
 <span class="r-in"><span><span class="co"># Run model assessment</span></span></span>
 <span class="r-in"><span><span class="fu">model_assessment</span><span class="op">(</span><span class="va">data</span>, <span class="st">"NOR"</span>, <span class="st">"L-moments"</span>, ci <span class="op">=</span> <span class="va">ci</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 108.11776  98.44905  91.99071  75.23320  86.10714 108.21163  99.17586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [8]  93.73108  89.23005  93.14664 103.55095 109.96582 109.94133  89.48270</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 100.77882 105.86229  96.05944 105.74290 101.84364  88.81079  88.19487</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] 104.83221 107.28678  90.25614  85.70304  87.53543  75.85501  81.29131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] 112.34168 102.36275  97.20200  95.89982 114.17581 106.12786  80.78296</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 101.99865  90.26977  68.72037  96.84019  94.40152  94.10852  90.60605</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 104.78407  91.14503 101.86453  88.78454  95.55080  98.17331 100.36910</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [50] 102.09306  98.87816  96.74392  75.56170 101.86518 117.44204  99.59156</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  98.69751  95.69942  88.03281  98.55958 110.30797  96.95703 106.25070</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] 101.96883 110.42065  93.68646 103.34383  94.88873  94.56708  86.10628</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] 110.11812 101.27535 101.56512 103.04107 111.97045 102.72246  91.78099</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [78] 103.24926 107.68759 105.03399  83.06022 111.48481 101.06242 104.15816</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 104.91312 106.74244 103.73173 112.11088 106.51197 117.53953 100.23531</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [92] 105.69572  94.61341 101.11590  90.87626 100.45123 108.96800  87.22664</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [99] 111.80982  85.37089</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]  75.23320  86.10714 108.21163  99.17586  93.73108  89.23005  93.14664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [8] 103.55095 109.96582 109.94133  89.48270 100.77882 105.86229  96.05944</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 105.74290 101.84364  88.81079  88.19487 104.83221 107.28678  90.25614</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22]  85.70304  87.53543  75.85501  81.29131 112.34168 102.36275  97.20200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [29]  95.89982 114.17581 106.12786  80.78296 101.99865  90.26977  68.72037</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36]  96.84019  94.40152  94.10852  90.60605 104.78407  91.14503 101.86453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43]  88.78454  95.55080  98.17331 100.36910 102.09306  98.87816  96.74392</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [50]  75.56170 101.86518 117.44204  99.59156  98.69751  95.69942  88.03281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  98.55958 110.30797  96.95703 106.25070 101.96883 110.42065  93.68646</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] 103.34383  94.88873  94.56708  86.10628 110.11812 101.27535 101.56512</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71] 103.04107 111.97045 102.72246  91.78099 103.24926 107.68759 105.03399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [78]  83.06022 111.48481 101.06242 104.15816 104.91312 106.74244 103.73173</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 112.11088 106.51197 117.53953 100.23531 105.69572  94.61341 101.11590</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [92]  90.87626 100.45123 108.96800  87.22664 111.80982  85.37089 100.92801</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [99] 100.60390  90.05612</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $q_theoretical</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 120.93439 118.31418 116.65210 115.40201 114.38531 113.52007 112.76153</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [8] 112.08244 111.46492 110.89656 110.36839 109.87371 109.40737 108.96529</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 108.54425 108.14158 107.75511 107.38300 107.02371 106.67591 106.33846</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] 106.01037 105.69078 105.37892 105.07411 104.77575 104.48330 104.19626</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] 103.91420 103.63671 103.36341 103.09398 102.82810 102.56547 102.30583</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 102.04893 101.79452 101.54240 101.29233 101.04414 100.79762 100.55259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 100.30889 100.06633  99.82476  99.58402  99.34395  99.10440  98.86522</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [50]  98.62626  98.38737  98.14841  97.90923  97.66968  97.42961  97.18887</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  96.94729  96.70474  96.46103  96.21601  95.96949  95.72129  95.47123</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64]  95.21910  94.96470  94.70780  94.44816  94.18553  93.91964  93.65021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71]  93.37692  93.09942  92.81736  92.53033  92.23787  91.93951  91.63471</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [78]  91.32285  91.00326  90.67517  90.33772  89.98992  89.63062  89.25852</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85]  88.87204  88.46938  88.04833  87.60626  87.13991  86.64523  86.11707</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [92]  85.54871  84.93118  84.25209  83.49355  82.62831  81.61162  80.36153</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [99]  78.69945  76.07924</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 120.77319 118.16367 116.50837 115.26338 114.25084 113.38913 112.63368</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [8] 111.95736 111.34236 110.77631 110.25030 109.75765 109.29320 108.85293</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 108.43360 108.03258 107.64768 107.27709 106.91927 106.57288 106.23681</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] 105.91006 105.59178 105.28119 104.97762 104.68048 104.38922 104.10336</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] 103.82245 103.54608 103.27391 103.00557 102.74077 102.47922 102.22064</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 101.96478 101.71142 101.46032 101.21127 100.96409 100.71858 100.47455</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 100.23184  99.99027  99.74969  99.50993  99.27084  99.03226  98.79406</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [50]  98.55607  98.31816  98.08018  97.84197  97.60340  97.36431  97.12455</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  96.88396  96.64240  96.39968  96.15566  95.91014  95.66296  95.41392</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64]  95.16282  94.90946  94.65360  94.39502  94.13346  93.86866  93.60033</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71]  93.32815  93.05179  92.77088  92.48501  92.19375  91.89661  91.59305</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [78]  91.28246  90.96417  90.63743  90.30135  89.95497  89.59714  89.22655</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85]  88.84166  88.44063  88.02131  87.58104  87.11659  86.62393  86.09792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [92]  85.53188  84.91687  84.24055  83.48511  82.62340  81.61085  80.36586</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [99]  78.71057  76.10104</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $q_empirical</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 117.53953 117.44204 114.17581 112.34168 112.11088 111.97045 111.80982</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [8] 111.48481 110.42065 110.30797 110.11812 109.96582 109.94133 108.96800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 108.21163 108.11776 107.68759 107.28678 106.74244 106.51197 106.25070</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] 106.12786 105.86229 105.74290 105.69572 105.03399 104.91312 104.83221</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] 104.78407 104.15816 103.73173 103.55095 103.34383 103.24926 103.04107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 102.72246 102.36275 102.09306 101.99865 101.96883 101.86518 101.86453</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 101.84364 101.56512 101.27535 101.11590 101.06242 100.77882 100.45123</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [50] 100.36910 100.23531  99.59156  99.17586  98.87816  98.69751  98.55958</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  98.44905  98.17331  97.20200  96.95703  96.84019  96.74392  96.05944</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [15] 108.21163 107.68759 107.28678 106.74244 106.51197 106.25070 106.12786</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [22] 105.86229 105.74290 105.69572 105.03399 104.91312 104.83221 104.78407</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [29] 104.15816 103.73173 103.55095 103.34383 103.24926 103.04107 102.72246</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [36] 102.36275 102.09306 101.99865 101.96883 101.86518 101.86453 101.84364</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [43] 101.56512 101.27535 101.11590 101.06242 100.92801 100.77882 100.60390</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [50] 100.45123 100.36910 100.23531  99.59156  99.17586  98.87816  98.69751</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [57]  98.55958  98.17331  97.20200  96.95703  96.84019  96.74392  96.05944</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [64]  95.89982  95.69942  95.55080  94.88873  94.61341  94.56708  94.40152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [71]  94.10852  93.73108  93.68646  93.14664  91.99071  91.78099  91.14503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [78]  90.87626  90.60605  90.26977  90.25614  89.48270  89.23005  88.81079</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [71]  94.10852  93.73108  93.68646  93.14664  91.78099  91.14503  90.87626</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [78]  90.60605  90.26977  90.25614  90.05612  89.48270  89.23005  88.81079</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [85]  88.78454  88.19487  88.03281  87.53543  87.22664  86.10714  86.10628</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [92]  85.70304  85.37089  83.06022  81.29131  80.78296  75.85501  75.56170</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [99]  75.23320  68.72037</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$AIC_MLL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 740.5313</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 739.9498</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$BIC_MLL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 745.7416</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 745.1601</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$R2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.976168</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9755023</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$RMSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.50706</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.524231</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$bias</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -3.552714e-15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -2.842448e-15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$AIC_RMSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 45.01606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 46.14899</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$BIC_RMSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 50.2264</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 51.35933</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$AW</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.459609</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.441414</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$POC</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 95.91837</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $metrics$CWI</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.378445</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.360582</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>

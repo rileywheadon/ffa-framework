@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Parameter Estimation • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Parameter Estimation">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -54,20 +54,20 @@
     <li><a class="dropdown-item" href="../articles/wrapper-functions.html">Using Wrapper Functions</a></li>
   </ul>
 </li>
-<li class="nav-item dropdown">
+<li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-wiki" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Wiki</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Parameter Estimation</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/ffa-parameter-estimation.Rmd" class="external-link"><code>vignettes/articles/ffa-parameter-estimation.Rmd</code></a></small>
@@ -101,9 +101,6 @@
 
     
     
-<div class="section level2">
-<h2 id="parameter-estimation">Parameter Estimation<a class="anchor" aria-label="anchor" href="#parameter-estimation"></a>
-</h2>
 <p>This module estimates parameters for both S-FFA and NS-FFA. In
 NS-FFA, parameter estimation also involves estimating regression
 coefficients for time-varying parameters.</p>
@@ -118,9 +115,9 @@ Coles (2001)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-b
 modeling of extreme values&lt;/em&gt;. Springer.&lt;/p&gt;"><sup>1</sup></a>, where a <em>positive</em> shape parameter
 <span class="math inline">\(\kappa\)</span> indicates a heavy tail. This
 differs from the convention used by some other sources.</p>
-<div class="section level3">
-<h3 id="l-moments">L-Moments<a class="anchor" aria-label="anchor" href="#l-moments"></a>
-</h3>
+<div class="section level2">
+<h2 id="l-moments">L-Moments<a class="anchor" aria-label="anchor" href="#l-moments"></a>
+</h2>
 <p>The L-moments parameter estimation method is implemented for all
 distributions in S-FFA. This method uses the sample L-moments (<span class="math inline">\(l_1\)</span>, <span class="math inline">\(l_2\)</span>) and L-moment ratios (<span class="math inline">\(t_3\)</span>, <span class="math inline">\(t_4\)</span>) to estimate parameters. For more
 information about L-moments, see <a href="model-selection.html#an-introduction-to-l-moments">here</a>.</p>
@@ -129,9 +126,9 @@ distributions which do not have support at small values. However, this
 is typically not an issue for quantile estimation of mid- to high-return
 periods.</p>
 </div>
-<div class="section level3">
-<h3 id="maximum-likelihood-mle">Maximum Likelihood (MLE)<a class="anchor" aria-label="anchor" href="#maximum-likelihood-mle"></a>
-</h3>
+<div class="section level2">
+<h2 id="maximum-likelihood-mle">Maximum Likelihood (MLE)<a class="anchor" aria-label="anchor" href="#maximum-likelihood-mle"></a>
+</h2>
 <p>MLE is implemented for all distributions across both S-FFA and
 NS-FFA.</p>
 <p>Maximum likelihood estimation aims to maximize the log-likelihood
@@ -143,9 +140,9 @@ parameters, we use the <a href="https://www.rdocumentation.org/packages/stats/ve
 function from the <code>stats</code> library. This function implements
 the “L-BFGS-B” algorithm for box-constrained optimization.</p>
 </div>
-<div class="section level3">
-<h3 id="generalized-maximum-likelihood-gmle">Generalized Maximum Likelihood (GMLE)<a class="anchor" aria-label="anchor" href="#generalized-maximum-likelihood-gmle"></a>
-</h3>
+<div class="section level2">
+<h2 id="generalized-maximum-likelihood-gmle">Generalized Maximum Likelihood (GMLE)<a class="anchor" aria-label="anchor" href="#generalized-maximum-likelihood-gmle"></a>
+</h2>
 <p>GMLE is used for GEV models when incorporating <em>prior
 knowledge</em><a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Martins, E. S., and Stedinger, J. R. (2000). Generalized
 maximum-likelihood generalized extreme-value quantile estimators for
@@ -183,7 +180,6 @@ following form:</p>
 t_{i}^{-1/\kappa}\right]
 \end{aligned}
 \]</span></p>
-</div>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

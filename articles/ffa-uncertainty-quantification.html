@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Uncertainty Quantification • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Uncertainty Quantification">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Uncertainty Quantification</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/ffa-uncertainty-quantification.Rmd" class="external-link"><code>vignettes/articles/ffa-uncertainty-quantification.Rmd</code></a></small>
@@ -101,9 +101,6 @@
 
     
     
-<div class="section level2">
-<h2 id="uncertainty-quantification">Uncertainty Quantification<a class="anchor" aria-label="anchor" href="#uncertainty-quantification"></a>
-</h2>
 <p>The FFA framework implements three methods for uncertainty
 quantification:</p>
 <ol style="list-style-type: decimal">
@@ -111,9 +108,9 @@ quantification:</p>
 <li>Regula-falsi profile likelihood (RFPL)</li>
 <li>Regula-falsi generalized profile likelihood (RFGPL)</li>
 </ol>
-<div class="section level3">
-<h3 id="parametric-bootstrap">Parametric Bootstrap<a class="anchor" aria-label="anchor" href="#parametric-bootstrap"></a>
-</h3>
+<div class="section level2">
+<h2 id="parametric-bootstrap">Parametric Bootstrap<a class="anchor" aria-label="anchor" href="#parametric-bootstrap"></a>
+</h2>
 <p>The parametric bootstrap is a flexible method for uncertainty
 quantification that works with all probability models and parameter
 estimation methods. Let <span class="math inline">\(n\)</span> be the
@@ -143,9 +140,9 @@ Resources 161, 10451 (2022). &lt;a href="https://doi.org/10.1016/j.advwatres.202
 regula-falsi profile likelihood method for nonstationary hydrological
 frequency analysis. Stoch Environ Res Risk Assess 38, 843–867 (2024). &lt;a href="https://doi.org/10.1007/s00477-023-02603-0" class="external-link"&gt;https://doi.org/10.1007/s00477-023-02603-0&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>.</p>
 </div>
-<div class="section level3">
-<h3 id="regula-falsi-profile-likelihood-rfpl">Regula-Falsi Profile Likelihood (RFPL)<a class="anchor" aria-label="anchor" href="#regula-falsi-profile-likelihood-rfpl"></a>
-</h3>
+<div class="section level2">
+<h2 id="regula-falsi-profile-likelihood-rfpl">Regula-Falsi Profile Likelihood (RFPL)<a class="anchor" aria-label="anchor" href="#regula-falsi-profile-likelihood-rfpl"></a>
+</h2>
 <p>Consider a statistical model with parameters <span class="math inline">\((\theta, \psi_{1}, \dots, \psi_{n})\)</span>. The
 <strong>Profile Likelihood</strong> for the scalar parameter <span class="math inline">\(\theta\)</span> and vector of nuisance parameters
 <span class="math inline">\(\psi\)</span> is defined as:</p>
@@ -198,9 +195,9 @@ Resources 161, 10451 (2022). &lt;a href="https://doi.org/10.1016/j.advwatres.202
 &lt;p&gt;Vidrio-Sahagún, C.T., He, J. &amp;amp; Pietroniro, A. Multi-distribution
 regula-falsi profile likelihood method for nonstationary hydrological
 frequency analysis. Stoch Environ Res Risk Assess 38, 843–867 (2024). &lt;a href="https://doi.org/10.1007/s00477-023-02603-0" class="external-link"&gt;https://doi.org/10.1007/s00477-023-02603-0&lt;/a&gt;&lt;/p&gt;'><sup>2</sup></a>.</p>
-<div class="section level4">
-<h4 id="handling-the-weibull-distribution">Handling the Weibull Distribution<a class="anchor" aria-label="anchor" href="#handling-the-weibull-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="handling-the-weibull-distribution">Handling the Weibull Distribution<a class="anchor" aria-label="anchor" href="#handling-the-weibull-distribution"></a>
+</h3>
 <p>Due to support issues, we use a different reparameterization for the
 Weibull distribution:</p>
 <p><span class="math display">\[
@@ -218,9 +215,9 @@ both the mean and the variability. However, the reparameterizations for
 other nonstationary structures can be obtained easily by setting <span class="math inline">\(\sigma_{1} = 0\)</span> and/or <span class="math inline">\(\mu_{1} = 0\)</span>. After solving for <span class="math inline">\(\sigma_{0}\)</span> in terms of the other
 parameters, we can use the standard log-likelihood function.</p>
 </div>
-<div class="section level4">
-<h4 id="initialization-algorithm">Initialization Algorithm<a class="anchor" aria-label="anchor" href="#initialization-algorithm"></a>
-</h4>
+<div class="section level3">
+<h3 id="initialization-algorithm">Initialization Algorithm<a class="anchor" aria-label="anchor" href="#initialization-algorithm"></a>
+</h3>
 <p>Before we can find the roots of <span class="math inline">\(f\)</span>, we need to identify initial values for
 the regula-falsi algorithm:</p>
 <ul>
@@ -233,9 +230,9 @@ the regula-falsi algorithm:</p>
 computing <span class="math inline">\(f(a^{*})\)</span> for <span class="math inline">\(a^{*} = 0.95y\)</span>. If <span class="math inline">\(f(a^{*}) &lt; 0\)</span>, then assign <span class="math inline">\(a_{0} = a^{*}\)</span>. Otherwise, update <span class="math inline">\(a^{*}\)</span> to <span class="math inline">\(0.95a^{*}\)</span> until <span class="math inline">\(f(a^{*}) &lt; 0\)</span>. To find <span class="math inline">\(b_{0}\)</span>, we use a similar process. However,
 instead of iteratively revising <span class="math inline">\(b^{*}\)</span> down, we revise it up to <span class="math inline">\(1.05b^{*}\)</span>.</p>
 </div>
-<div class="section level4">
-<h4 id="iteration-algorithm">Iteration Algorithm<a class="anchor" aria-label="anchor" href="#iteration-algorithm"></a>
-</h4>
+<div class="section level3">
+<h3 id="iteration-algorithm">Iteration Algorithm<a class="anchor" aria-label="anchor" href="#iteration-algorithm"></a>
+</h3>
 <p>At iteration <span class="math inline">\(i\)</span>, compute the
 following:</p>
 <p><span class="math display">\[
@@ -253,18 +250,18 @@ if <span class="math inline">\(f(c_{i}) &lt; 0\)</span> and <span class="math in
 <span class="math inline">\(i + 1\)</span>.</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="regula-falsi-generalized-profile-likelihood-rfgpl">Regula-Falsi Generalized Profile Likelihood (RFGPL)<a class="anchor" aria-label="anchor" href="#regula-falsi-generalized-profile-likelihood-rfgpl"></a>
-</h3>
+<div class="section level2">
+<h2 id="regula-falsi-generalized-profile-likelihood-rfgpl">Regula-Falsi Generalized Profile Likelihood (RFGPL)<a class="anchor" aria-label="anchor" href="#regula-falsi-generalized-profile-likelihood-rfgpl"></a>
+</h2>
 <p>The regula-falsi generalized profile likelihood (RFGPL) method
 performs the regula-falsi algorithm shown above on the GEV distributions
 with a <span class="math inline">\(\text{Beta}(p, q)\)</span> prior for
 the shape parameter <span class="math inline">\(\kappa\)</span>. For
 more information about generalized parameter estimation, see <a href="parameter-estimation.html#generalized-maximum-likelihood-gmle">here</a>.</p>
 </div>
-<div class="section level3">
-<h3 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
-</h3>
+<div class="section level2">
+<h2 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
+</h2>
 <p>If the selected probability distribution is nonstationary, the
 quantiles (and hence confidence intervals) for the bootstrapped
 distributions change in time. See <a href="ffa-introduction.html#handling-nonstationarity">here</a> for a more
@@ -277,7 +274,6 @@ fastest algorithm for computing confidence intervals on all years in a
 dataset because the probabilities used to generate the bootstrapped
 samples can be reused. The RFPL and RFGPL algorithms are far slower,
 since they must be run separately at each timestamp.</p>
-</div>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

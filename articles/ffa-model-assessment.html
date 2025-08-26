@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Model Assessment • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Model Assessment">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Model Assessment</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/ffa-model-assessment.Rmd" class="external-link"><code>vignettes/articles/ffa-model-assessment.Rmd</code></a></small>
@@ -102,11 +102,8 @@
     
     
 <div class="section level2">
-<h2 id="model-assessment">Model Assessment<a class="anchor" aria-label="anchor" href="#model-assessment"></a>
+<h2 id="nonparametric-models">Nonparametric Models<a class="anchor" aria-label="anchor" href="#nonparametric-models"></a>
 </h2>
-<div class="section level3">
-<h3 id="nonparametric-models">Nonparametric Models<a class="anchor" aria-label="anchor" href="#nonparametric-models"></a>
-</h3>
 <p>A <strong>Plotting Position</strong> is a non-parametric estimator of
 exceedance probabilities. By using the plotting position, we can
 evaluate the quality of a stationary parametric model. To compute the
@@ -159,14 +156,14 @@ plotting position formula:</p>
 <p>By default, the FFA framework uses the Weibull formula, which is
 unbiased.</p>
 </div>
+<div class="section level2">
+<h2 id="accuracy-statistics">Accuracy Statistics<a class="anchor" aria-label="anchor" href="#accuracy-statistics"></a>
+</h2>
 <div class="section level3">
-<h3 id="accuracy-statistics">Accuracy Statistics<a class="anchor" aria-label="anchor" href="#accuracy-statistics"></a>
-</h3>
-<div class="section level4">
-<h4 id="r2---coefficient-of-determination">
+<h3 id="r2---coefficient-of-determination">
 <span class="math inline">\(R^2\)</span> - Coefficient of
 Determination<a class="anchor" aria-label="anchor" href="#r2---coefficient-of-determination"></a>
-</h4>
+</h3>
 <p>To compute the <span class="math inline">\(R^2\)</span> statistic, we
 perform a linear regression of the annual maximum series data against
 the predictions of the parametric model at the plotting positions. The
@@ -176,16 +173,16 @@ The plot below shows the deviation of the model (red dots), from the
 data (black line).</p>
 <p><img src="../reference/figures/plot-assessment.svg"></p>
 </div>
-<div class="section level4">
-<h4 id="rmse---root-mean-squared-error">RMSE - Root-Mean Squared Error<a class="anchor" aria-label="anchor" href="#rmse---root-mean-squared-error"></a>
-</h4>
+<div class="section level3">
+<h3 id="rmse---root-mean-squared-error">RMSE - Root-Mean Squared Error<a class="anchor" aria-label="anchor" href="#rmse---root-mean-squared-error"></a>
+</h3>
 <p>The <code>RMSE</code> statistic describes the average
 <em>squared</em> difference between the data and the predictions of the
 parametric model. Lower is better.</p>
 </div>
-<div class="section level4">
-<h4 id="bias">Bias<a class="anchor" aria-label="anchor" href="#bias"></a>
-</h4>
+<div class="section level3">
+<h3 id="bias">Bias<a class="anchor" aria-label="anchor" href="#bias"></a>
+</h3>
 <p>The <code>Bias</code> statistic describes the average difference
 between the data and the predictions of the parametric model. A positive
 bias indicates that the model tends to <em>overestimate</em> the data
@@ -193,9 +190,9 @@ while a negative bias indicates that the model tends to
 <em>underestimate</em> the data.</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="information-criterion">Information Criterion<a class="anchor" aria-label="anchor" href="#information-criterion"></a>
-</h3>
+<div class="section level2">
+<h2 id="information-criterion">Information Criterion<a class="anchor" aria-label="anchor" href="#information-criterion"></a>
+</h2>
 <p>The <strong>Akaike Information Criterion</strong> (<code>AIC</code>)
 and <strong>Bayesian Information Criterion</strong> (<code>BIC</code>)
 describe the quality of a model based on the error (<code>RMSE</code>)
@@ -213,9 +210,9 @@ and <code>BIC_MLL</code>.</p>
 <code class="sourceCode R"><span><span class="va">AIC_MLL</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">MLL</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="va">n_theta</span><span class="op">)</span></span>
 <span><span class="va">BIC_MLL</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">MLL</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">*</span> <span class="va">n_theta</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="uncertainty-statistics">Uncertainty Statistics<a class="anchor" aria-label="anchor" href="#uncertainty-statistics"></a>
-</h3>
+<div class="section level2">
+<h2 id="uncertainty-statistics">Uncertainty Statistics<a class="anchor" aria-label="anchor" href="#uncertainty-statistics"></a>
+</h2>
 <p>The FFA framework uses three statistics to assess the uncertainty in
 flood quantile estimates:</p>
 <ul>
@@ -231,9 +228,9 @@ reliability (lower is better).</li>
 </ul>
 <p>We use these metrics together to evaluate the robustness of the flood
 frequency analysis.</p>
-<div class="section level4">
-<h4 id="aw-average-width">AW – Average Width<a class="anchor" aria-label="anchor" href="#aw-average-width"></a>
-</h4>
+<div class="section level3">
+<h3 id="aw-average-width">AW – Average Width<a class="anchor" aria-label="anchor" href="#aw-average-width"></a>
+</h3>
 <p><code>AW</code> is the average width of the interpolated confidence
 intervals across return periods of interest. A smaller <code>AW</code>
 indicates more <em>precise</em> quantile estimates. To compute
@@ -241,16 +238,16 @@ indicates more <em>precise</em> quantile estimates. To compute
 confidence intervals of the exceedance probabilities from the confidence
 intervals computed during <a href="uncertainty-quantification.html">uncertainty quantification</a>.</p>
 </div>
-<div class="section level4">
-<h4 id="poc-percent-of-coverage">POC – Percent of Coverage<a class="anchor" aria-label="anchor" href="#poc-percent-of-coverage"></a>
-</h4>
+<div class="section level3">
+<h3 id="poc-percent-of-coverage">POC – Percent of Coverage<a class="anchor" aria-label="anchor" href="#poc-percent-of-coverage"></a>
+</h3>
 <p><code>POC</code> is the percentage of data points that fall within
 their corresponding confidence intervals. A higher <code>POC</code>
 indicates greater <em>reliability</em> of the confidence intervals.</p>
 </div>
-<div class="section level4">
-<h4 id="cwi-confidence-width-indicator">CWI – Confidence Width Indicator<a class="anchor" aria-label="anchor" href="#cwi-confidence-width-indicator"></a>
-</h4>
+<div class="section level3">
+<h3 id="cwi-confidence-width-indicator">CWI – Confidence Width Indicator<a class="anchor" aria-label="anchor" href="#cwi-confidence-width-indicator"></a>
+</h3>
 <p><code>CWI</code> is a composite metric that penalizes wide and/or
 poorly calibrated confidence intervals.</p>
 <ul>
@@ -265,9 +262,9 @@ resulting in a low <code>CWI</code>.</li>
 <code class="sourceCode R"><span><span class="va">CWI</span> <span class="op">&lt;-</span> <span class="va">AW</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">alpha</span><span class="op">)</span> <span class="op">-</span> <span class="va">POC</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
-</h3>
+<div class="section level2">
+<h2 id="handling-nonstationarity">Handling Nonstationarity<a class="anchor" aria-label="anchor" href="#handling-nonstationarity"></a>
+</h2>
 <p>When working with nonstationary models, adjustments must be made to
 both the empirical quantiles (derived from the plotting positions) and
 the theoretical quantiles. In the FFA framework, we perform
@@ -310,7 +307,6 @@ p_{(i)})}{n}}
 \]</span></p>
 <p>We can use this formula to plot the 95% confidence interval at <span class="math inline">\(\pm 1.96 \cdot \text{SE}(\Delta
 _{i})\)</span>.</p>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

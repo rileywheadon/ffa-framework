@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -101,17 +101,14 @@
 
     
     
-<div class="section level2">
-<h2 id="change-point-detection">Change Point Detection<a class="anchor" aria-label="anchor" href="#change-point-detection"></a>
-</h2>
 <p>The EDA module of the FFA Framework includes two statistical tests
 for detecting change points in annual maximum series data: the
 <strong>Mann-Kendall-Sneyers (MKS) test</strong> and the <strong>Pettitt
 test</strong>.</p>
 <hr>
-<div class="section level3">
-<h3 id="mann-kendall-sneyers-test">Mann-Kendall-Sneyers Test<a class="anchor" aria-label="anchor" href="#mann-kendall-sneyers-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="mann-kendall-sneyers-test">Mann-Kendall-Sneyers Test<a class="anchor" aria-label="anchor" href="#mann-kendall-sneyers-test"></a>
+</h2>
 <p>The <strong>Mann-Kendall-Sneyers (MKS) test</strong> detects a
 <em>trend change</em> in a time series:</p>
 <ul>
@@ -153,16 +150,16 @@ the <span class="math inline">\(\alpha/2\)</span> and <span class="math inline">
 normal distribution, where <span class="math inline">\(\alpha\)</span>
 is the chosen significance level. A crossing point between <span class="math inline">\(UF_{t}\)</span> and <span class="math inline">\(UB_{t}\)</span> that lies outside the confidence
 bounds is a potential change point.</p>
-<div class="section level4">
-<h4 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
+</h3>
 <p><img src="../reference/figures/plot-mks.svg"></p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="pettitt-test">Pettitt Test<a class="anchor" aria-label="anchor" href="#pettitt-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="pettitt-test">Pettitt Test<a class="anchor" aria-label="anchor" href="#pettitt-test"></a>
+</h2>
 <p>The <strong>Pettitt test</strong> detects abrupt changes in the mean
 of a time series.</p>
 <ul>
@@ -187,11 +184,10 @@ p \approx \exp \left(-\frac{6K^2}{n^3 + n^2}\right)
 <p>If the p-value is less than the significance level <span class="math inline">\(\alpha\)</span>, we reject the null hypothesis and
 conclude that there is evidence for an abrupt change in the mean at the
 potential change point.</p>
-<div class="section level4">
-<h4 id="example-plot-1">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-1"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot-1">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-1"></a>
+</h3>
 <p><img src="../reference/figures/plot-pettitt.svg"></p>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

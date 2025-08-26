@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Tests for Trends in the Mean • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Tests for Trends in the Mean">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Tests for Trends in the Mean</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/eda-trend-ams-mean.Rmd" class="external-link"><code>vignettes/articles/eda-trend-ams-mean.Rmd</code></a></small>
@@ -101,18 +101,15 @@
 
     
     
-<div class="section level2">
-<h2 id="detecting-and-characterizing-trends-in-the-mean">Detecting and Characterizing Trends in the Mean<a class="anchor" aria-label="anchor" href="#detecting-and-characterizing-trends-in-the-mean"></a>
-</h2>
 <p>This section describes the statistical tests (listed in alphabetical
 order) used to detect and characterize significant trends in the mean of
 the annual maximum series. These tests help identify a trend, identify
 autocorrelation, and determine whether a trend is
 deterministic/stochastic and linear/non-linear.</p>
 <hr>
-<div class="section level3">
-<h3 id="bb-mk-test">BB-MK Test<a class="anchor" aria-label="anchor" href="#bb-mk-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="bb-mk-test">BB-MK Test<a class="anchor" aria-label="anchor" href="#bb-mk-test"></a>
+</h2>
 <p>The <strong>Block Bootstrap Mann-Kendall (BB-MK) Test</strong>
 assesses the presence of a statistically significant monotonic trend in
 a time series. The BB-MK test is insensitive to <a href="https://en.wikipedia.org/wiki/Autocorrelation" class="external-link">autocorrelation</a>,
@@ -124,9 +121,9 @@ exists.</li>
 </ul>
 <p>To conduct the BB-MK test, we rely on the results of the MK test and
 the Spearman autocorrelation test.</p>
-<div class="section level4">
-<h4 id="steps">Steps<a class="anchor" aria-label="anchor" href="#steps"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps">Steps<a class="anchor" aria-label="anchor" href="#steps"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li>Compute the MK test statistic (see below).</li>
 <li>Use the Spearman test (see below) to identify the least
@@ -139,16 +136,16 @@ bootstrapped statistics.</li>
 empirical distribution.</li>
 </ol>
 </div>
-<div class="section level4">
-<h4 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot"></a>
+</h3>
 <p><img src="../reference/figures/plot-bbmk.svg"></p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="kpss-test">KPSS Test<a class="anchor" aria-label="anchor" href="#kpss-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="kpss-test">KPSS Test<a class="anchor" aria-label="anchor" href="#kpss-test"></a>
+</h2>
 <p>The <strong>KPSS Test</strong> determines whether an autoregressive
 time series has a <a href="https://en.wikipedia.org/wiki/Unit_root" class="external-link">unit
 root</a>. This test helps assess if the time series has a deterministic
@@ -187,9 +184,9 @@ streamflow due to natural variability.</li>
 <span class="math inline">\(v_{t}\)</span> is <em>random walk
 innovation</em>, or irreversible fluctuations in <span class="math inline">\(\mu_{t}\)</span>.</li>
 </ul>
-<div class="section level4">
-<h4 id="steps-1">Steps<a class="anchor" aria-label="anchor" href="#steps-1"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps-1">Steps<a class="anchor" aria-label="anchor" href="#steps-1"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li><p>Fit a linear model to <span class="math inline">\(y_{t}\)</span>
 and get the residuals <span class="math inline">\(\hat{r}_{t}\)</span>.</p></li>
@@ -249,9 +246,9 @@ levels <span class="math inline">\(\alpha\)</span> between <span class="math inl
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="mann-kendall-mk-test">Mann-Kendall (MK) Test<a class="anchor" aria-label="anchor" href="#mann-kendall-mk-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="mann-kendall-mk-test">Mann-Kendall (MK) Test<a class="anchor" aria-label="anchor" href="#mann-kendall-mk-test"></a>
+</h2>
 <p>The <strong>Mann-Kendall (MK) Test</strong> detects statistically
 significant monotonic trends in a time series under the assumption of
 independence (i.e. no autocorrelation).</p>
@@ -287,9 +284,9 @@ conclude that there is a statistically significant monotonic trend in
 the data. For more information, see <a href="https://vsp.pnnl.gov/help/vsample/design_trend_mann_kendall.htm" class="external-link">here</a>.</p>
 <hr>
 </div>
-<div class="section level3">
-<h3 id="phillips-perron-pp-test">Phillips-Perron (PP) Test<a class="anchor" aria-label="anchor" href="#phillips-perron-pp-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="phillips-perron-pp-test">Phillips-Perron (PP) Test<a class="anchor" aria-label="anchor" href="#phillips-perron-pp-test"></a>
+</h2>
 <p>The <strong>PP Test</strong> identifies if an autoregressive time
 series has a <a href="https://en.wikipedia.org/wiki/Unit_root" class="external-link">unit
 root</a>.</p>
@@ -314,9 +311,9 @@ hypothesis).</li>
 <li>If <span class="math inline">\(\rho &lt; 1\)</span>, then <span class="math inline">\(y_t\)</span> is <em>trend stationary</em>
 (alternative hypothesis).</li>
 </ul>
-<div class="section level4">
-<h4 id="steps-2">Steps<a class="anchor" aria-label="anchor" href="#steps-2"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps-2">Steps<a class="anchor" aria-label="anchor" href="#steps-2"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li><p>Fit a linear autoregressive model to the time series <span class="math inline">\(y_{t}\)</span>. Let <span class="math inline">\(\hat{r}_{t}\)</span> be the residuals of this
 model. From this model, we can determine <span class="math inline">\(\hat{\rho}\)</span> (the estimated coefficient on
@@ -470,9 +467,9 @@ probabilities <span class="math inline">\(p\)</span>:</p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="runs-test">Runs Test<a class="anchor" aria-label="anchor" href="#runs-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="runs-test">Runs Test<a class="anchor" aria-label="anchor" href="#runs-test"></a>
+</h2>
 <p>The <strong>Runs Test</strong> checks whether the residuals of a
 regression (e.g., trend approximation from <a href="#sens-trend-estimator">Sen’s estimator</a>) are randomly
 distributed. If the Runs test identifies non-randomness in the
@@ -483,9 +480,9 @@ data is non-linear.</p>
 <li>Alternative hypothesis: Residuals <em>are not</em> distributed
 randomly (e.g., due to nonlinearity).</li>
 </ul>
-<div class="section level4">
-<h4 id="steps-3">Steps<a class="anchor" aria-label="anchor" href="#steps-3"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps-3">Steps<a class="anchor" aria-label="anchor" href="#steps-3"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li><p>Classify the data based on whether it is above (<span class="math inline">\(+\)</span>) or below <span class="math inline">\((-)\)</span> the median. All data points that are
 equal to the median are removed.</p></li>
@@ -507,23 +504,23 @@ with:</p>
 given above.</p></li>
 </ol>
 </div>
-<div class="section level4">
-<h4 id="example-plot-1">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-1"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot-1">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-1"></a>
+</h3>
 <p><img src="../reference/figures/plot-runs.svg"></p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sens-trend-estimator">Sen’s Trend Estimator<a class="anchor" aria-label="anchor" href="#sens-trend-estimator"></a>
-</h3>
+<div class="section level2">
+<h2 id="sens-trend-estimator">Sen’s Trend Estimator<a class="anchor" aria-label="anchor" href="#sens-trend-estimator"></a>
+</h2>
 <p><strong>Sen’s Trend Estimator</strong> approximates the slope of a
 regression line. Unlike <a href="https://en.wikipedia.org/wiki/Least_squares" class="external-link">Least Squares</a>,
 Sen’s trend estimator uses a non-parametric approach which makes it
 robust to outliers.</p>
-<div class="section level4">
-<h4 id="steps-4">Steps<a class="anchor" aria-label="anchor" href="#steps-4"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps-4">Steps<a class="anchor" aria-label="anchor" href="#steps-4"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li>
 <p>For all pairs <span class="math inline">\((x_i, y_i)\)</span> and
@@ -537,16 +534,16 @@ m_{ij} = \frac{y_j - y_i}{x_j - x_i}
 <span class="math inline">\(\hat{b}\)</span> as the median of <span class="math inline">\(y_{i} - \hat{m}x_{i}\)</span> for all <span class="math inline">\(i\)</span>.</p></li>
 </ol>
 </div>
-<div class="section level4">
-<h4 id="example-plot-2">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-2"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot-2">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-2"></a>
+</h3>
 <p><img src="../reference/figures/plot-sens.svg"></p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="spearman-test">Spearman Test<a class="anchor" aria-label="anchor" href="#spearman-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="spearman-test">Spearman Test<a class="anchor" aria-label="anchor" href="#spearman-test"></a>
+</h2>
 <p>The <strong>Spearman test</strong> identifies autocorrelation in a
 time series <span class="math inline">\(y_{t}\)</span>. A
 <em>significant lag</em> is a number <span class="math inline">\(i\)</span> such that the correlation between <span class="math inline">\(y_{t}\)</span> and <span class="math inline">\(y_{t-i}\)</span> is statistically significant. The
@@ -572,11 +569,10 @@ confidence level <span class="math inline">\(\alpha\)</span>.</li>
 <p>For more information, see the Wikipedia pages on <a href="https://en.wikipedia.org/wiki/Autocorrelation" class="external-link">Autocorrelation</a>
 and <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient" class="external-link">Spearman’s
 Rho</a>.</p>
-<div class="section level4">
-<h4 id="example-plot-3">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-3"></a>
-</h4>
+<div class="section level3">
+<h3 id="example-plot-3">Example Plot<a class="anchor" aria-label="anchor" href="#example-plot-3"></a>
+</h3>
 <p><img src="../reference/figures/plot-spearman.svg"></p>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

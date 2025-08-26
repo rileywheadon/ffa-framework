@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Probability Distributions • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Probability Distributions">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Probability Distributions</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/ffa-probability-distributions.Rmd" class="external-link"><code>vignettes/articles/ffa-probability-distributions.Rmd</code></a></small>
@@ -101,9 +101,6 @@
 
     
     
-<div class="section level2">
-<h2 id="candidate-probability-distributions">Candidate Probability Distributions<a class="anchor" aria-label="anchor" href="#candidate-probability-distributions"></a>
-</h2>
 <p>The FFA framework considers nine candidate probability
 distributions:</p>
 <table style="width:100%;" class="table">
@@ -187,14 +184,14 @@ parameters).</li>
 selection metric. The Kappa distribution generalizes the nine
 distributions listed above.</p>
 <hr>
-<div class="section level3">
-<h3 id="list-of-distributions1">List of Distributions<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Hosking, J.R.M. &amp;amp; Wallis, J.R., 1997. Regional
+<div class="section level2">
+<h2 id="list-of-distributions1">List of Distributions<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Hosking, J.R.M. &amp;amp; Wallis, J.R., 1997. Regional
 frequency analysis: an approach based on L-Moments. Cambridge University
 Press, New York, USA.&lt;/p&gt;"><sup>1</sup></a><a class="anchor" aria-label="anchor" href="#list-of-distributions1"></a>
+</h2>
+<div class="section level3">
+<h3 id="gumbel-gum-distribution">Gumbel (GUM) Distribution<a class="anchor" aria-label="anchor" href="#gumbel-gum-distribution"></a>
 </h3>
-<div class="section level4">
-<h4 id="gumbel-gum-distribution">Gumbel (GUM) Distribution<a class="anchor" aria-label="anchor" href="#gumbel-gum-distribution"></a>
-</h4>
 <p><strong>Support</strong></p>
 <p><span class="math inline">\(-\infty &lt; x &lt; \infty\)</span></p>
 <p><strong>Quantiles</strong></p>
@@ -234,9 +231,9 @@ constant</a>.</p>
 \gamma\)</span></li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="normal-nor-distribution">Normal (NOR) Distribution<a class="anchor" aria-label="anchor" href="#normal-nor-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="normal-nor-distribution">Normal (NOR) Distribution<a class="anchor" aria-label="anchor" href="#normal-nor-distribution"></a>
+</h3>
 <p><strong>Support</strong></p>
 <p><span class="math inline">\(-\infty &lt; x &lt; \infty\)</span></p>
 <p><strong>Quantiles</strong></p>
@@ -270,9 +267,9 @@ z_{i} = \frac{x_{i} - \mu}{\sigma }
 \pi^{1/2}\lambda_{2}\)</span></li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="log-normal-lno-distribution">Log-Normal (LNO) Distribution<a class="anchor" aria-label="anchor" href="#log-normal-lno-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="log-normal-lno-distribution">Log-Normal (LNO) Distribution<a class="anchor" aria-label="anchor" href="#log-normal-lno-distribution"></a>
+</h3>
 <p><strong>Support</strong></p>
 <p><span class="math inline">\(0 &lt; x &lt; \infty\)</span></p>
 <p><strong>Quantiles</strong></p>
@@ -295,9 +292,9 @@ that:</p>
 <p><strong>L-Moments</strong></p>
 <p>See <a href="#normal-nor-distribution">Normal Distribution</a>.</p>
 </div>
-<div class="section level4">
-<h4 id="generalized-extreme-value-gev-distribution">Generalized Extreme Value (GEV) Distribution<a class="anchor" aria-label="anchor" href="#generalized-extreme-value-gev-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="generalized-extreme-value-gev-distribution">Generalized Extreme Value (GEV) Distribution<a class="anchor" aria-label="anchor" href="#generalized-extreme-value-gev-distribution"></a>
+</h3>
 <p><strong>Support</strong></p>
 <p><span class="math display">\[
 \begin{cases}
@@ -357,9 +354,9 @@ of probability-weighted moments. Technometrics, 27, 251-61.&lt;/p&gt;"><sup>2</s
 <p><strong>Note</strong>: Other sources often use a different notation
 for the GEV distribution in which the sign of the shape parameter <span class="math inline">\(\kappa\)</span> is flipped.</p>
 </div>
-<div class="section level4">
-<h4 id="generalized-logistic-glo-distribution">Generalized Logistic (GLO) Distribution<a class="anchor" aria-label="anchor" href="#generalized-logistic-glo-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="generalized-logistic-glo-distribution">Generalized Logistic (GLO) Distribution<a class="anchor" aria-label="anchor" href="#generalized-logistic-glo-distribution"></a>
+</h3>
 <p><strong>Support</strong></p>
 <p><span class="math display">\[
 \begin{cases}
@@ -410,9 +407,9 @@ t_{i}^{1/\kappa }\right) \right]
 - (\pi / \sin (\kappa\pi))]\)</span></li>
 </ul>
 </div>
-<div class="section level4">
-<h4 id="generalized-normal-gno-distribution">Generalized Normal (GNO) Distribution<a class="anchor" aria-label="anchor" href="#generalized-normal-gno-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="generalized-normal-gno-distribution">Generalized Normal (GNO) Distribution<a class="anchor" aria-label="anchor" href="#generalized-normal-gno-distribution"></a>
+</h3>
 <p><strong>Support</strong></p>
 <p><span class="math display">\[
 \begin{cases}
@@ -471,9 +468,9 @@ Press, New York, USA.&lt;/p&gt;"><sup>3</sup></a>. Although this appendix covers
 3-parameter log-normal distribution, the L-moments of the generalized
 normal distribution are the same.</p>
 </div>
-<div class="section level4">
-<h4 id="pearson-type-iii-pe3-distribution">Pearson Type III (PE3) Distribution<a class="anchor" aria-label="anchor" href="#pearson-type-iii-pe3-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="pearson-type-iii-pe3-distribution">Pearson Type III (PE3) Distribution<a class="anchor" aria-label="anchor" href="#pearson-type-iii-pe3-distribution"></a>
+</h3>
 <p>The Pearson Type III distribution is typically reparameterized as
 follows for <span class="math inline">\(\kappa \neq 0\)</span>:</p>
 <p><span class="math display">\[
@@ -574,9 +571,9 @@ parameters from the L-moments, we use one of two approximations for
 \end{aligned}
 \]</span></p>
 </div>
-<div class="section level4">
-<h4 id="log-pearson-type-iii-lp3-distribution">Log-Pearson Type III (LP3) Distribution<a class="anchor" aria-label="anchor" href="#log-pearson-type-iii-lp3-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="log-pearson-type-iii-lp3-distribution">Log-Pearson Type III (LP3) Distribution<a class="anchor" aria-label="anchor" href="#log-pearson-type-iii-lp3-distribution"></a>
+</h3>
 <p>The LP3 distribution uses the same reparameterization as the <a href="#pearson-type-iii-pe3-distribution">PE3 distribution</a>.</p>
 <p><strong>Support</strong></p>
 <p><span class="math display">\[
@@ -609,9 +606,9 @@ that:</p>
 <p>Same as the <a href="#pearson-type-iii-pe3-distribution">PE3
 distribution</a>.</p>
 </div>
-<div class="section level4">
-<h4 id="weibull-wei-distribution">Weibull (WEI) Distribution<a class="anchor" aria-label="anchor" href="#weibull-wei-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="weibull-wei-distribution">Weibull (WEI) Distribution<a class="anchor" aria-label="anchor" href="#weibull-wei-distribution"></a>
+</h3>
 <p>The Weibull distribution is implemented as a reparameterized version
 of the generalized extreme value distribution:</p>
 <p><span class="math display">\[
@@ -668,9 +665,9 @@ of the GEV distribution to get <span class="math inline">\(\hat{\mu}_{\text{GEV}
 reparameterize the GEV parameters as shown <a href="#weibull-wei-distribution">here</a> and then flip the sign of
 <span class="math inline">\(\mu\)</span>.</p>
 </div>
-<div class="section level4">
-<h4 id="kappa-kap-distribution">Kappa (KAP) Distribution<a class="anchor" aria-label="anchor" href="#kappa-kap-distribution"></a>
-</h4>
+<div class="section level3">
+<h3 id="kappa-kap-distribution">Kappa (KAP) Distribution<a class="anchor" aria-label="anchor" href="#kappa-kap-distribution"></a>
+</h3>
 <p>The Kappa distribution has location <span class="math inline">\(\mu\)</span>, scale <span class="math inline">\(\sigma\)</span>, and two shape parameters <span class="math inline">\(\kappa\)</span> and <span class="math inline">\(h\)</span>.</p>
 <p><strong>Support</strong></p>
 <p><span class="math display">\[
@@ -719,10 +716,9 @@ L-moments. However, <span class="math inline">\(\tau_{3}\)</span> and
 of <span class="math inline">\(\kappa\)</span> and <span class="math inline">\(h\)</span> using Newton-Raphson iteration.</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sources">Sources<a class="anchor" aria-label="anchor" href="#sources"></a>
-</h3>
-</div>
+<div class="section level2">
+<h2 id="sources">Sources<a class="anchor" aria-label="anchor" href="#sources"></a>
+</h2>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

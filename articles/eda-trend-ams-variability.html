@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • ffaframework</title>
+<title>Tests for Trends in the Variability • ffaframework</title>
 <!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
   window.MathJax = {
     chtml: {
@@ -19,7 +19,7 @@
 <link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Tests for Trends in the Variability">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,12 +40,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-vignettes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Vignettes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
-    <li><a class="dropdown-item" href="../articles/change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/trend-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-mean.html">Characterizing Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/trend-variability.html">Characterizing Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/stationary-ffa.html">Stationary FFA</a></li>
@@ -59,15 +59,15 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-wiki">
 <li><h6 class="dropdown-header" data-toc-skip>EDA</h6></li>
     <li><a class="dropdown-item" href="../articles/eda-introduction.html">Introduction</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Points</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Trends in AMS Mean</a></li>
-    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Trends in AMS Variability</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-change-points.html">Change Point Detection</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-mean.html">Tests for Trends in the Mean</a></li>
+    <li><a class="dropdown-item" href="../articles/eda-trend-ams-variability.html">Tests for Trends in the Variability</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>FFA</h6></li>
     <li><a class="dropdown-item" href="../articles/ffa-introduction.html">Introduction</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-probability-distributions.html">Probability Distributions</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-selection.html">Model Selection</a></li>
-    <li><a class="dropdown-item" href="../articles/parameter-estimation.html">Parameter Estimation</a></li>
+    <li><a class="dropdown-item" href="../articles/ffa-parameter-estimation.html">Parameter Estimation</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-uncertainty-quantification.html">Uncertainty Quantification</a></li>
     <li><a class="dropdown-item" href="../articles/ffa-model-assessment.html">Model Assessment</a></li>
   </ul>
@@ -92,7 +92,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Tests for Trends in the Variability</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/rileywheadon/ffa-framework/blob/master/vignettes/articles/eda-trend-ams-variability.Rmd" class="external-link"><code>vignettes/articles/eda-trend-ams-variability.Rmd</code></a></small>
@@ -101,16 +101,13 @@
 
     
     
-<div class="section level2">
-<h2 id="detecting-trends-in-the-variability">Detecting Trends in the Variability<a class="anchor" aria-label="anchor" href="#detecting-trends-in-the-variability"></a>
-</h2>
 <p>This section describes the methods used to detect trends or changes
 in the <strong>variability</strong> (e.g., variance or standard
 deviation) of annual maximum series data.</p>
 <hr>
-<div class="section level3">
-<h3 id="moving-window-mann-kendall-mw-mk-test">Moving Window Mann-Kendall (MW-MK) Test<a class="anchor" aria-label="anchor" href="#moving-window-mann-kendall-mw-mk-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="moving-window-mann-kendall-mw-mk-test">Moving Window Mann-Kendall (MW-MK) Test<a class="anchor" aria-label="anchor" href="#moving-window-mann-kendall-mw-mk-test"></a>
+</h2>
 <p>The <strong>MW-MK test</strong> detects statistically significant
 monotonic trends in the standard deviation of the data.</p>
 <ul>
@@ -119,9 +116,9 @@ deviation.</li>
 <li>Alternative hypothesis: Significant monotonic trend in the standard
 deviation.</li>
 </ul>
-<div class="section level4">
-<h4 id="steps">Steps<a class="anchor" aria-label="anchor" href="#steps"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps">Steps<a class="anchor" aria-label="anchor" href="#steps"></a>
+</h3>
 <p>To compute the standard deviations of the data, we use a moving
 window algorithm. Let <span class="math inline">\(w\)</span> be the
 length of the moving window and <span class="math inline">\(s\)</span>
@@ -140,23 +137,23 @@ is used to test for a monotonic trend in the standard deviation.</p>
 <hr>
 </div>
 </div>
-<div class="section level3">
-<h3 id="sens-trend-estimator">Sen’s Trend Estimator<a class="anchor" aria-label="anchor" href="#sens-trend-estimator"></a>
-</h3>
+<div class="section level2">
+<h2 id="sens-trend-estimator">Sen’s Trend Estimator<a class="anchor" aria-label="anchor" href="#sens-trend-estimator"></a>
+</h2>
 <p>Used to estimate the slope of a trend in the standard deviations (see
 <a href="eda-trend-ams-mean.html#sens-trend-estimator">here</a>).</p>
 <hr>
 </div>
-<div class="section level3">
-<h3 id="runs-test">Runs Test<a class="anchor" aria-label="anchor" href="#runs-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="runs-test">Runs Test<a class="anchor" aria-label="anchor" href="#runs-test"></a>
+</h2>
 <p>Used to the check residuals of trend fitted to the standard
 deviations for randomness (see <a href="eda-trend-ams-mean.html#runs-test">here</a>).</p>
 <hr>
 </div>
-<div class="section level3">
-<h3 id="white-test">White Test<a class="anchor" aria-label="anchor" href="#white-test"></a>
-</h3>
+<div class="section level2">
+<h2 id="white-test">White Test<a class="anchor" aria-label="anchor" href="#white-test"></a>
+</h2>
 <p>The <strong>White Test</strong> detects changes in variability
 (heteroskedasticity) in a time series.</p>
 <ul>
@@ -164,9 +161,9 @@ deviations for randomness (see <a href="eda-trend-ams-mean.html#runs-test">here<
 <li>Alternative hypothesis: Time-dependent variability
 (heteroskedasticity).</li>
 </ul>
-<div class="section level4">
-<h4 id="steps-1">Steps<a class="anchor" aria-label="anchor" href="#steps-1"></a>
-</h4>
+<div class="section level3">
+<h3 id="steps-1">Steps<a class="anchor" aria-label="anchor" href="#steps-1"></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li>
 <p>Fit a simple linear regression model using ordinary least
@@ -200,7 +197,6 @@ the number of regressors, excluding the intercept.</p></li>
 d}\)</span>, we reject the null hypothesis and conclude that the time
 series exhibits heteroskedasticity.</p></li>
 </ol>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
