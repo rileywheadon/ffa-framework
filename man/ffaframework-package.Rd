@@ -22,7 +22,7 @@ inform approach selection (S-FFA or NS-FFA):
 \item \verb{select_*}: Select a suitable probability distribution using the L-moments.
 \item \verb{fit_*}: Fit parameters given a distribution and approach (S-FFA or NS-FFA).
 \item \verb{uncertainty_*}: Quantify uncertainty by computing confidence intervals.
-\item \code{\link[=model_assessment]{model_assessment()}} evaluates model performance for using a variety of metrics.
+\item \code{\link[=model_assessment]{model_assessment()}} evaluates model performance using a variety of metrics.
 }
 
 Additional utility functions for visualization and computation are also available:

@@ -29,7 +29,7 @@ using Newton-Raphson iteration.
 First, the sample L-moments of the data are computed using \code{\link[=utils_sample_lmoments]{utils_sample_lmoments()}}.
 Then, the \code{\link[stats:optim]{stats::optim()}} function is used to determine the parameters
 by minimizing the euclidian distance between the sample and theoretical L-moment
-ratios. The implementation of this routine is based on the deprecated \code{homtest}
+ratios. The implementation of this routine is based on the deprecated 'homtest'
 package, formerly available at \url{https://CRAN.R-project.org/package=homtest}.
 }
 \examples{

@@ -15,7 +15,7 @@
 #' 2. `select_*`: Select a suitable probability distribution using the L-moments.
 #' 3. `fit_*`: Fit parameters given a distribution and approach (S-FFA or NS-FFA).
 #' 4. `uncertainty_*`: Quantify uncertainty by computing confidence intervals.
-#' 5. [model_assessment()] evaluates model performance for using a variety of metrics.
+#' 5. [model_assessment()] evaluates model performance using a variety of metrics.
 #' 
 #' Additional utility functions for visualization and computation are also available:
 #' 

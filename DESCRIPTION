@@ -5,7 +5,7 @@ Description: Tools to support systematic and reproducible workflows for both
 	extending to other hydroclimate extremes, such as precipitation frequency
 	analysis. This package implements the FFA framework proposed by Vidrio-
 	Sahagún et al. (2024) <doi:10.1016/j.envsoft.2024.105940>, originally
-	developed in MATLAB, now adapted for the R environment. This work was
+	developed in 'MATLAB', now adapted for the 'R' environment. This work was
 	funded by the Flood Hazard Identification and Mapping Program of Environment
 	and Climate Change Canada, as well as the Canada Research Chair (Tier 1)
 	awarded to Dr. Pietroniro.

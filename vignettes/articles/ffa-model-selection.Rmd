@@ -1,4 +1,6 @@
-# Model Selection
+---
+title: "Model Selection"
+---
 
 This module selects a statistical model for S-FFA or NS-FFA based on the annual maximum series.
 

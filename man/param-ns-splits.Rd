@@ -8,7 +8,7 @@
 subperiods. For S-FFA, set to \code{NULL} (default). For NS-FFA, specify an \emph{integer} vector
 of years with physical justification for change points, or \code{NULL} if no such years exist.
 In R, integers have the suffix \code{L}, so \code{1950L} is a valid input to \code{ns_splits}, but \code{1950}
-is not (since R may interpret it as a floating point number).}
+is not (since it may be interpreted as a floating point number).}
 }
 \description{
 Parameter 'ns_splits'

@@ -2,8 +2,6 @@
 title: "Change Point Detection"
 ---
 
-# Change Point Detection
-
 The EDA module of the FFA Framework includes two statistical tests for detecting change points in annual maximum series data: the **Mann-Kendall-Sneyers (MKS) test** and the **Pettitt test**.
 
 ---

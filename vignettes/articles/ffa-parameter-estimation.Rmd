@@ -1,4 +1,6 @@
-# Parameter Estimation
+---
+title: "Parameter Estimation"
+---
 
 This module estimates parameters for both S-FFA and NS-FFA. In NS-FFA, parameter estimation also involves estimating regression coefficients for time-varying parameters.
 

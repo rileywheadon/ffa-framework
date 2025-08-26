@@ -1,4 +1,6 @@
-# Introduction to Exploratory Data Analysis (EDA)
+---
+title: "Exploratory Data Analysis (EDA)"
+---
 
 The EDA module of the FFA Framework is used to evaluate whether the available evidence supports the assumption of stationarity.
 To do this, the EDA module applies a structured sequence of statistical tests to the data to detect statistically significant nonstationary signatures. 

@@ -1,4 +1,6 @@
-# Detecting and Characterizing Trends in the Mean
+---
+title: "Tests for Trends in the Mean"
+---
 
 This section describes the statistical tests (listed in alphabetical order) used to detect and characterize significant trends in the mean of the annual maximum series.
 These tests help identify a trend, identify autocorrelation, and determine whether a trend is deterministic/stochastic and linear/non-linear.

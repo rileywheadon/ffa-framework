@@ -27,7 +27,7 @@ fit_lmoments_fast <- function(data, distribution) {
 		k <- NULL
 	}
 
-	# NOTE: Copied from MATLAB, not sure why we use this formula.
+	# NOTE: Copied from 'MATLAB', not sure why we use this formula.
 	else if (distribution == "LNO") {
 		s <- sqrt(2) * qnorm((1 + (l2 / l1)) / 2)
         u <- log(l1) - s^2 / 2

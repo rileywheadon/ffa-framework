@@ -1,8 +1,8 @@
 ---
-title: "Trend Identification (Variability)"
+title: "Characterizing Trends in the Variability"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Trend Identification (Variability)}
+  %\VignetteIndexEntry{Characterizing Trends in the Variability}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

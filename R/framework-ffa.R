@@ -68,6 +68,13 @@
 #' - `end`: The last year of the homogeneous subperiod.
 #' - Additional items specific to the the submodule.
 #'
+#' @examples
+#' # Get data for the BOW RIVER AT BANFF (05BB001)
+#' df <- data_local("CAN-05BB001.csv")
+#'
+#' # Run the FFA module (takes several minutes)
+#' \dontrun{framework_ffa(df$max, df$year)}
+#'
 #' @seealso [select_ldistance()], [select_lkurtosis()], [select_zstatistic()],
 #'   [fit_lmoments()], [fit_mle()], [fit_gmle()], [uncertainty_bootstrap()], 
 #'   [uncertainty_rfpl()], [uncertainty_rfgpl()], [model_assessment()]

@@ -25,7 +25,7 @@ Must be the same length as \code{data} and strictly increasing.}
 subperiods. For S-FFA, set to \code{NULL} (default). For NS-FFA, specify an \emph{integer} vector
 of years with physical justification for change points, or \code{NULL} if no such years exist.
 In R, integers have the suffix \code{L}, so \code{1950L} is a valid input to \code{ns_splits}, but \code{1950}
-is not (since R may interpret it as a floating point number).}
+is not (since it may be interpreted as a floating point number).}
 
 \item{generate_report}{If \code{TRUE} (default), generate a report.}
 
@@ -81,6 +81,14 @@ compute the variability series.
 }
 }
 
+\examples{
+# Get data for the BOW RIVER AT BANFF (05BB001)
+df <- data_local("CAN-05BB001.csv")
+
+# Run EDA (takes several minutes)
+\dontrun{framework_eda(df$max, df$year)}
+
+}
 \seealso{
 \code{\link[=eda_pettitt_test]{eda_pettitt_test()}}, \code{\link[=eda_mks_test]{eda_mks_test()}}, \code{\link[=eda_mk_test]{eda_mk_test()}},
 \code{\link[=eda_spearman_test]{eda_spearman_test()}}, \code{\link[=eda_bbmk_test]{eda_bbmk_test()}}, \code{\link[=eda_pp_test]{eda_pp_test()}}, \code{\link[=eda_kpss_test]{eda_kpss_test()}},

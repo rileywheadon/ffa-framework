@@ -29,6 +29,7 @@ GMLL
 GNO
 Gachon
 GeoMet
+Github
 Gringorten
 Hazen
 Heteroskedasticity
@@ -93,6 +94,7 @@ Vidrio
 WR
 Wolfowitz
 Zhang
+aTSA
 al
 arctan
 behaviour
@@ -109,8 +111,10 @@ falsi
 frac
 funder
 geq
+ggplot
 heteroskedasticity
 homoskedasticity
+homtest
 hydroclimate
 hydrologic
 hydrological

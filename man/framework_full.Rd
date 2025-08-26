@@ -26,7 +26,7 @@ Must be the same length as \code{data} and strictly increasing.}
 subperiods. For S-FFA, set to \code{NULL} (default). For NS-FFA, specify an \emph{integer} vector
 of years with physical justification for change points, or \code{NULL} if no such years exist.
 In R, integers have the suffix \code{L}, so \code{1950L} is a valid input to \code{ns_splits}, but \code{1950}
-is not (since R may interpret it as a floating point number).}
+is not (since it may be interpreted as a floating point number).}
 
 \item{ns_structures}{For S-FFA, set to \code{NULL} (default) to use a stationary model
 for all homogeneous subperiods. For NS-FFA, provide a list of \code{length(ns_splits) + 1}
@@ -66,6 +66,14 @@ Runs the entire flood frequency analysis framework using the results of explorat
 data analysis (EDA) to guide approach selection (stationary or nonstationary) and
 perform flood frequency analysis. Returns a comprehensive and reproducible summary
 of the results.
+}
+\examples{
+# Get data for the BOW RIVER AT BANFF (05BB001)
+df <- data_local("CAN-05BB001.csv")
+
+# Run the complete FFA framework (takes several minutes)
+\dontrun{framework_full(df$max, df$year)}
+
 }
 \seealso{
 \code{\link[=framework_eda]{framework_eda()}}, \code{\link[=framework_ffa]{framework_ffa()}}

@@ -15,7 +15,7 @@ plot_pettitt_test(results, show_line = TRUE, ...)
 'bottom_xlabel' and 'bottom_ylabel'.}
 }
 \value{
-A \code{patchwork} object with two \code{ggplot2} panels stacked vertically.
+A 'patchwork' object with two 'ggplot2' panels stacked vertically.
 }
 \description{
 Creates a two‐panel visualization of the Mann–Whitney–Pettitt test. The

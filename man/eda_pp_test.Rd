@@ -32,7 +32,7 @@ unit root (also known as a stochastic trend). The alternative hypothesis is that
 the time series is trend-stationary with a deterministic linear trend.
 }
 \details{
-The implementation of this test is based on the \pkg{aTSA} package, which
+The implementation of this test is based on the 'aTSA' package, which
 interpolates p-values from the table of critical values presented in Fuller W.
 A. (1996). The critical values are only available for \eqn{\alpha \geq 0.01}.
 Therefore, a reported p-value of 0.01 indicates that \eqn{p \leq 0.01}.

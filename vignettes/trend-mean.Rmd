@@ -1,8 +1,8 @@
 ---
-title: "Trend Identification (Mean)"
+title: "Characterizing Trends in the Mean"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Trend Identification (Mean)}
+  %\VignetteIndexEntry{Characterizing Trends in the Mean}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

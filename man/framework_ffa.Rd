@@ -26,7 +26,7 @@ Must be the same length as \code{data} and strictly increasing.}
 subperiods. For S-FFA, set to \code{NULL} (default). For NS-FFA, specify an \emph{integer} vector
 of years with physical justification for change points, or \code{NULL} if no such years exist.
 In R, integers have the suffix \code{L}, so \code{1950L} is a valid input to \code{ns_splits}, but \code{1950}
-is not (since R may interpret it as a floating point number).}
+is not (since it may be interpreted as a floating point number).}
 
 \item{ns_structures}{For S-FFA, set to \code{NULL} (default) to use a stationary model
 for all homogeneous subperiods. For NS-FFA, provide a list of \code{length(ns_splits) + 1}
@@ -112,6 +112,14 @@ method `"Bootstrap" (default is 10000).
 }
 }
 
+\examples{
+# Get data for the BOW RIVER AT BANFF (05BB001)
+df <- data_local("CAN-05BB001.csv")
+
+# Run the FFA module (takes several minutes)
+\dontrun{framework_ffa(df$max, df$year)}
+
+}
 \seealso{
 \code{\link[=select_ldistance]{select_ldistance()}}, \code{\link[=select_lkurtosis]{select_lkurtosis()}}, \code{\link[=select_zstatistic]{select_zstatistic()}},
 \code{\link[=fit_lmoments]{fit_lmoments()}}, \code{\link[=fit_mle]{fit_mle()}}, \code{\link[=fit_gmle]{fit_gmle()}}, \code{\link[=uncertainty_bootstrap]{uncertainty_bootstrap()}},

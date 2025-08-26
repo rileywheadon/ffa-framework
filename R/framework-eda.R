@@ -44,6 +44,13 @@
 #' - `end`: The last year of the homogeneous subperiod.
 #' - Additional items from the statistical tests within the submodule.
 #'
+#' @examples
+#' # Get data for the BOW RIVER AT BANFF (05BB001)
+#' df <- data_local("CAN-05BB001.csv")
+#'
+#' # Run EDA (takes several minutes)
+#' \dontrun{framework_eda(df$max, df$year)}
+#'
 #' @seealso [eda_pettitt_test()], [eda_mks_test()], [eda_mk_test()], 
 #' [eda_spearman_test()], [eda_bbmk_test()], [eda_pp_test()], [eda_kpss_test()], 
 #' [eda_sens_trend()], [eda_runs_test()], [eda_white_test()]

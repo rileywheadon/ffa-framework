@@ -1,4 +1,4 @@
-url: "https://rileywheadon.github.io/ffa-package"
+url: "https://rileywheadon.github.io/ffa-framework"
 template:
   bootstrap: 5
   bslib:
@@ -19,20 +19,20 @@ navbar:
     left:
       - home
       - reference
-      - articles
+      - vignettes
       - wiki
       - matlab
       - license
   components:
-    articles:
-      text: "Articles"
+    vignettes:
+      text: "Vignettes"
       menu:
       - text: "EDA"
-      - text: "Change Points"
+      - text: "Change Point Detection"
         href: "articles/change-points.html"
-      - text: "Trends in AMS Mean"
+      - text: "Characterizing Trends in the Mean"
         href: "articles/trend-mean.html"
-      - text: "Trends in AMS Variability"
+      - text: "Characterizing Trends in the Variability"
         href: "articles/trend-variability.html"
       - text: "---"
       - text: "FFA"
@@ -49,11 +49,11 @@ navbar:
       - text: "EDA"
       - text: "Introduction"
         href: "articles/eda-introduction.html"
-      - text: "Change Points"
+      - text: "Change Point Detection"
         href: "articles/eda-change-points.html"
-      - text: "Trends in AMS Mean"
+      - text: "Tests for Trends in the Mean"
         href: "articles/eda-trend-ams-mean.html"
-      - text: "Trends in AMS Variability"
+      - text: "Tests for Trends in the Variability"
         href: "articles/eda-trend-ams-variability.html"
       - text: "---"
       - text: "FFA"
@@ -64,7 +64,7 @@ navbar:
       - text: "Model Selection"
         href: "articles/ffa-model-selection.html"
       - text: "Parameter Estimation"
-        href: "articles/parameter-estimation.html"
+        href: "articles/ffa-parameter-estimation.html"
       - text: "Uncertainty Quantification"
         href: "articles/ffa-uncertainty-quantification.html"
       - text: "Model Assessment"
@@ -72,4 +72,3 @@ navbar:
     matlab:
       text: "MATLAB Version"
       href: "articles/matlab-version.html"
-

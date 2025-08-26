@@ -1,4 +1,6 @@
-# Model Assessment
+---
+title: "Model Assessment"
+---
 
 ## Nonparametric Models
 

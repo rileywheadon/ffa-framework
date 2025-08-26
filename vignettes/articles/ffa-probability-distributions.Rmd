@@ -1,4 +1,6 @@
-# Candidate Probability Distributions
+---
+title: "Probability Distributions"
+---
 
 The FFA framework considers nine candidate probability distributions:
 

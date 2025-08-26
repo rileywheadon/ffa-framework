@@ -1,4 +1,6 @@
-# Uncertainty Quantification
+---
+title: "Uncertainty Quantification"
+---
 
 The FFA framework implements three methods for uncertainty quantification: 
 

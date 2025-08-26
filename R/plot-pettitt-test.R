@@ -13,7 +13,7 @@
 #' @param ... Optional named arguments: 'title', 'top_xlabel', 'top_ylabel', 
 #'   'bottom_xlabel' and 'bottom_ylabel'.
 #'
-#' @return A \code{patchwork} object with two \code{ggplot2} panels stacked vertically.
+#' @return A 'patchwork' object with two 'ggplot2' panels stacked vertically.
 #'
 #' @examples
 #' data <- rnorm(n = 100, mean = 100, sd = 10)

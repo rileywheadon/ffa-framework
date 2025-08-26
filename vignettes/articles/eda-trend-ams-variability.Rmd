@@ -1,4 +1,6 @@
-# Detecting Trends in the Variability
+---
+title: "Tests for Trends in the Variability"
+---
 
 This section describes the methods used to detect trends or changes in the **variability** (e.g., variance or standard deviation) of annual maximum series data.
 

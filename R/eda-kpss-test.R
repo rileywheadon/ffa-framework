@@ -18,7 +18,7 @@
 #' - `reject`: If `TRUE`, the null hypothesis was rejected at significance `alpha`.
 #'
 #' @details
-#' The implementation of the KPSS test is based on the \pkg{aTSA} package, which 
+#' The implementation of the KPSS test is based on the 'aTSA' package, which 
 #' interpolates a significance table from Hobijn et al. (2004). Therefore, a result 
 #' of \eqn{p = 0.01} implies that \eqn{p \leq 0.01} and a result of \eqn{p = 0.10} 
 #' implies that \eqn{p \geq 0.10}. 
