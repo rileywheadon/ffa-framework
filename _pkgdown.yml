@@ -63,10 +63,6 @@ navbar:
         href: "articles/ffa-uncertainty-quantification.html"
       - text: "Model Assessment"
         href: "articles/ffa-model-assessment.html"
-      - text: "---"
-      - text: "Other"
-      - text: "Summer 2025 Report"
-        href: "articles/summer-2025-report.html"
     matlab:
       text: "MATLAB Version"
       href: "articles/matlab-version.html"
