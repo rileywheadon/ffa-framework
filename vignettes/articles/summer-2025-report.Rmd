@@ -125,7 +125,7 @@ Please keep in mind that the estimated time _includes_ the following tasks:
 4. Adding the project to the web application.
 
 | Project Title                                         | Estimated Time      | Significance |
-| ----------------------------------------------------- | ------------------- | ------------ |
+| -------------------------- | ------------------- | ------------ |
 | [Dataset Screening](#dataset-screening)               | 30hrs (2-3 weeks)   | Medium       |
 | [Outlier Detection](#outlier-detection)               | 30hrs (2-3 weeks)   | Medium       |
 | [Burr Distributions](#burr-distributions)             | 30hrs (2-3 weeks)   | Low          |
