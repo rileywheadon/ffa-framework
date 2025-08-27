@@ -16,7 +16,7 @@ figures:
   fig.height: 8
 navbar:
   structure:
-    left: [home, reference, vignettes, wiki, matlab, news]
+    left: [home, reference, vignettes, articles, matlab, news]
   components:
     vignettes:
       text: "Vignettes"
@@ -37,8 +37,8 @@ navbar:
       - text: "---"
       - text: "Using Wrapper Functions"
         href: "articles/wrapper-functions.html"
-    wiki:
-      text: "Wiki"
+    articles:
+      text: "Articles"
       menu: 
       - text: "EDA"
       - text: "Introduction"
@@ -63,6 +63,10 @@ navbar:
         href: "articles/ffa-uncertainty-quantification.html"
       - text: "Model Assessment"
         href: "articles/ffa-model-assessment.html"
+      - text: "---"
+      - text: "Other"
+      - text: "Summer 2025 Report"
+        href: "articles/summer-2025-report.html"
     matlab:
       text: "MATLAB Version"
       href: "articles/matlab-version.html"
