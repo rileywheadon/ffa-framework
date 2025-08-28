@@ -1,9 +1,10 @@
-# ffaframework (development version)
+# ffaframework 0.1.1
 
 - Add support for report generation using serialized plots.
 
 ## Bug Fixes
 
+- Fix error on CRAN by using `generate_report = FALSE` during testing of `framework_*` functions.
 - `plot_*_estimates` now displays confidence intervals generated using custom return periods.
 - `framework_full` now works properly when a custom `report_path` is provided.
 
