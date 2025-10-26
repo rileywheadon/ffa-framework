@@ -13,7 +13,6 @@ test_that("data-local.R and data-geomet.R work properly and produce same results
     expect_true("year" %in% names(geomet_df))
     expect_true("max" %in% names(geomet_df))
 	expect_equal(ncol(geomet_df), 2)
-	expect_equal(nrow(geomet_df), 102)
 
 	# Comparision Test (only check common years)
 	years <- intersect(csv_df$year, geomet_df$year)

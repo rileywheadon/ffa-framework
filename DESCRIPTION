@@ -9,7 +9,7 @@ Description: Tools to support systematic and reproducible workflows for both
 	funded by the Flood Hazard Identification and Mapping Program of Environment
 	and Climate Change Canada, as well as the Canada Research Chair (Tier 1)
 	awarded to Dr. Pietroniro.
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     c(person(
         "Riley",
