@@ -1,3 +1,7 @@
+# ffaframework 0.1.2
+
+- Fix test failure in CRAN test farm. No user-facing changes.
+
 # ffaframework 0.1.1
 
 - Add support for report generation using serialized plots.
