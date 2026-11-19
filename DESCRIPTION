@@ -49,6 +49,6 @@ Imports: ggplot2, patchwork, httr, stats, glue, jsonlite, base64enc
 Suggests: knitr, rmarkdown, spelling, testthat, vdiffr
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Config/Needs/website: rmarkdown
 Language: en-US
+Config/roxygen2/version: 8.1.1

@@ -68,6 +68,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Riley Wheadon \email{rileywheadon@gmail.com}
   \item Cuauhtémoc Vidrio-Sahagún \email{ct.vidrio-sahagun@usask.ca}
   \item Alain Pietroniro \email{alain.pietroniro@ucalgary.ca} [funder]
   \item Jianxun He \email{jianhe@ucalgary.ca}

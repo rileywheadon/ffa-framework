@@ -52,31 +52,35 @@ import(ggplot2)
 import(patchwork)
 importFrom(glue,glue)
 importFrom(grDevices,pdf)
-importFrom(grid,gpar)
-importFrom(grid,grobTree)
-importFrom(grid,rectGrob)
-importFrom(grid,textGrob)
+importFrom(grid,
+  gpar,
+  grobTree,
+  rectGrob,
+  textGrob
+)
 importFrom(jsonlite,write_json)
-importFrom(stats,approx)
-importFrom(stats,coef)
-importFrom(stats,cor.test)
-importFrom(stats,dnorm)
-importFrom(stats,embed)
-importFrom(stats,lm)
-importFrom(stats,median)
-importFrom(stats,nlminb)
-importFrom(stats,optim)
-importFrom(stats,pchisq)
-importFrom(stats,pgamma)
-importFrom(stats,plnorm)
-importFrom(stats,pnorm)
-importFrom(stats,qchisq)
-importFrom(stats,qgamma)
-importFrom(stats,qlnorm)
-importFrom(stats,qnorm)
-importFrom(stats,quantile)
-importFrom(stats,resid)
-importFrom(stats,rnorm)
-importFrom(stats,runif)
-importFrom(stats,sd)
+importFrom(stats,
+  approx,
+  coef,
+  cor.test,
+  dnorm,
+  embed,
+  lm,
+  median,
+  nlminb,
+  optim,
+  pchisq,
+  pgamma,
+  plnorm,
+  pnorm,
+  qchisq,
+  qgamma,
+  qlnorm,
+  qnorm,
+  quantile,
+  resid,
+  rnorm,
+  runif,
+  sd
+)
 importFrom(utils,read.csv)

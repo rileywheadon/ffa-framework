@@ -67,9 +67,11 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMjUwLjUwfDQxNi4wNXwxMTcuNzd8MjgzLjMy)'>
-<rect x='250.50' y='117.77' width='165.55' height='165.55' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
+<rect x='250.50' y='117.77' width='165.55' height='165.55' style='stroke-width: 0.00; stroke: none; fill: #FFFFFF;' />
 </g>
 <g clip-path='url(#cpNzguMzN8NTg4LjIyfDI4LjM4fDUzOC4yNw==)'>
+</g>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 </g>
 <defs>
   <clipPath id='cpMjUwLjUwfDQxNi4wNXwxMzUuMjB8MjgzLjMy'>
@@ -88,6 +90,8 @@
 <polygon points='109.30,281.68 120.68,281.68 120.68,270.30 109.30,270.30 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
 <line x1='333.28' y1='209.26' x2='344.19' y2='229.47' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <rect x='250.50' y='135.20' width='165.55' height='148.12' style='stroke-width: 2.13;' />
+</g>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 </g>
 <g clip-path='url(#cpNzguMzN8NTg4LjIyfDI4LjM4fDUzOC4yNw==)'>
 </g>

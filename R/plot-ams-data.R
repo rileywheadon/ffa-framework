@@ -1,17 +1,17 @@
 #' Plot Annual Maximum Series Data
 #'
-#' Produces a scatterplot of annual maximum series data against time, optionally overlaid 
+#' Produces a scatterplot of annual maximum series data against time, optionally overlaid
 #' with the sample mean/variability or Sen's trend estimator of the mean/variability.
 #'
 #' @inheritParams param-data
 #' @inheritParams param-years
 #'
-#' @param plot_mean If "None" (default), the mean will not be plotted. If `"Constant"`, 
+#' @param plot_mean If "None" (default), the mean will not be plotted. If `"Constant"`,
 #' a black line is plotted at the sample mean. If `"Trend"`, the trend in the mean is
 #' estimated using [eda_sens_trend()] and plotted as a blue line.
 #'
-#' @param plot_variability If "None" (default), the variability will not be plotted. 
-#' If `"Constant"`, dashed black lines are plotted at one standard deviation above/below 
+#' @param plot_variability If "None" (default), the variability will not be plotted.
+#' If `"Constant"`, dashed black lines are plotted at one standard deviation above/below
 #' the sample mean. If `"Trend"`, the trend in variability is estimated with
 #' [data_mw_variability()] and [eda_sens_trend()] and plotted as a dashed blue line.
 #'
@@ -43,7 +43,7 @@ plot_ams_data <- function(
 	years,
 	plot_mean = "None",
 	plot_variability = "None",
-	show_line = TRUE, 
+	show_line = TRUE,
 	...
 ) {
 
@@ -71,7 +71,7 @@ plot_ams_data <- function(
 	# Capture optional arguments
 	args <- list(...)
 
-	# Set labels and title 
+	# Set labels and title
 	title <- args$title %||% "Annual Maximum Series"
 	xlabel <- args$xlabel %||% "Year"
 	ylabel <- args$ylabel %||% expression(Streamflow ~ m^3/s)
@@ -93,7 +93,7 @@ plot_ams_data <- function(
 			aes(y = .data$y_data),
 			color = "dimgray",
 			size = 2.25
-		) + 
+		) +
 		geom_line(
 			aes(y = .data$y_data),
 			color = "dimgray",
@@ -121,5 +121,3 @@ plot_ams_data <- function(
 	add_theme(add_scales(p))
 
 }
-
- 

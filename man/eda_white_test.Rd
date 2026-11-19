@@ -53,5 +53,5 @@ White, H. (1980). A heteroskedasticity-consistent covariance matrix estimator an
 a direct test for heteroskedasticity. \emph{Econometrica}, 48(4), 817–838.
 }
 \seealso{
-\code{\link[stats:lm]{stats::lm()}}, \code{\link[stats:Chisquare]{stats::pchisq()}}
+\code{\link[stats:lm]{stats::lm()}}, \code{\link[stats:pchisq]{stats::pchisq()}}
 }
