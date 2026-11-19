@@ -1,0 +1,84 @@
+# Flood Frequency Analysis (FFA)
+
+## Overview
+
+**Flood Frequency Analysis (FFA)** uses a *probability distribution*
+fitted to extreme streamflow observations (e.g., annual maxima) to
+estimate the *recurrence likelihood* of floods. To perform FFA, we
+require a [probability
+model](https://rileywheadon.github.io/ffa-framework/articles/model-selection.md)
+and corresponding [parameter
+estimates](https://rileywheadon.github.io/ffa-framework/articles/parameter-estimation.md)
+based on the data.
+
+FFA relates flood peak magnitudes \\Q\\ to their expected frequency of
+occurrence, expressed as a *return period*. For example, a flood with a
+10-year return period—commonly referred to as a *10-year flood*—has a
+1-in-10 chance of being equaled or exceeded in any given year. This
+corresponds to an *annual exceedance probability* of \\p_e = 0.1\\.
+Since the FFA Framework uses annual maxima data, this equates to the
+90th percentile (i.e., the \\0.90\\ quantile) of the fitted probability
+distribution.
+
+Here is a summary of the return periods, exceedance probabilities, and
+associated quantiles used by default in the FFA framework:
+
+| Return Period (\\T\\) | Exceedance Probability (\\p_e\\) | Quantile ( \\F(q)\\ ) |
+|----|----|----|
+| 2 Years | 0.50 | 0.50 |
+| 5 Years | 0.20 | 0.80 |
+| 10 Years | 0.10 | 0.90 |
+| 20 Years | 0.05 | 0.95 |
+| 50 Years | 0.02 | 0.98 |
+| 100 Years | 0.01 | 0.99 |
+
+Let \\F(q)\\ be the cumulative distribution function (CDF) of the fitted
+model. This function maps flood magnitudes to exceedance probabilities:
+\\p_e = 1 - F(q)\\. To estimate flood magnitudes for a given exceedance
+probability, we use the inverse of the CDF, better known as the
+*quantile function*: \\\hat{q} = F^{-1}(p_e)\\.
+
+### Example Plot
+
+FFA results are typically visualized with return period on the
+\\x\\-axis and flood magnitude on the \\y\\-axis. These plots can be
+interpreted in two directions:
+
+1.  Estimate *flood magnitude* for a given return period. For example, A
+    50-year flood is estimated to be about \\85\\ \text{m}^3/\text{s}\\.
+
+2.  Estimate *return period* for a given flood magnitude. For example, A
+    streamflow of \\50\\ \text{m}^3/\text{s}\\ is expected to occur
+    roughly every 4 years.
+
+![An example of flood frequency
+estimates.](../reference/figures/plot-s-uncertainty.svg)
+
+An example of flood frequency estimates.
+
+**Note**: For an explanation of the confidence bounds in this plot, see
+[Uncertainty
+Quantification](https://rileywheadon.github.io/ffa-framework/articles/uncertainty-quantification.md).
+
+## Handling Nonstationarity
+
+A probability model is considered *nonstationary* if its statistical
+properties (e.g., location or scale) change over time. In such cases,
+the quantile function becomes time-dependent: \\F^{-1}(p_e, t)\\.  
+As a result, return levels and exceedance probabilities vary with time,
+and a static return period curve is no longer valid. To address this,
+the FFA framework computes *effective return periods*, which yield flood
+estimates for a specific year based on the time-varying distribution.
+
+### Example Plot
+
+The plot below illustrates *effective return levels* for the years 1920,
+1960, and 2000. Remember, a 100-year effective return level does *not*
+imply that such a flood is expected to occur once in the next 100 years.
+Instead, it means that *in a given year*, the probability of exceeding
+the effective return level is 1 in 100.
+
+![Example of effective return periods in
+2017.](../reference/figures/plot-ns-uncertainty.svg)
+
+Example of effective return periods in 2017.

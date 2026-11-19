@@ -1,0 +1,83 @@
+# Parameter Estimation
+
+This module estimates parameters for both S-FFA and NS-FFA. In NS-FFA,
+parameter estimation also involves estimating regression coefficients
+for time-varying parameters.
+
+The framework supports three estimation methods:
+
+1.  L-moments
+2.  Maximum Likelihood (MLE)
+3.  Generalized Maximum Likelihood (GMLE)
+
+**Note**: We adopt the GEV distribution convention from Coles
+(2001)[^1], where a *positive* shape parameter \\\kappa\\ indicates a
+heavy tail. This differs from the convention used by some other sources.
+
+## L-Moments
+
+The L-moments parameter estimation method is implemented for all
+distributions in S-FFA. This method uses the sample L-moments (\\l_1\\,
+\\l_2\\) and L-moment ratios (\\t_3\\, \\t_4\\) to estimate parameters.
+For more information about L-moments, see
+[here](https://rileywheadon.github.io/ffa-framework/articles/model-selection.html#an-introduction-to-l-moments).
+
+**Warning**: L-moment-based estimates can yield distributions which do
+not have support at small values. However, this is typically not an
+issue for quantile estimation of mid- to high-return periods.
+
+## Maximum Likelihood (MLE)
+
+MLE is implemented for all distributions across both S-FFA and NS-FFA.
+
+Maximum likelihood estimation aims to maximize the log-likelihood
+function \\\ell(x : \theta)\\ of the data \\x = x\_{1}, \dots , x\_{n}\\
+given the parameters \\\theta\\. The log-likelihood functions for each
+distribution are defined
+[here](https://rileywheadon.github.io/ffa-framework/articles/probability-distributions.md).
+To find the optimal parameters, we use the
+[`nlminb`](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/nlminb)
+function from the `stats` library. This function implements the
+“L-BFGS-B” algorithm for box-constrained optimization.
+
+## Generalized Maximum Likelihood (GMLE)
+
+GMLE is used for GEV models when incorporating *prior knowledge*[^2] of
+the shape parameter \\\kappa\\ using Bayesian reasoning via [maximum a
+posteriori
+estimation](https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation),
+which maximizes the product of the likelihood and the prior
+distribution.
+
+Suppose that \\\kappa\\ is drawn from \\K \sim \text{Beta}(p, q)\\ where
+\\p\\ and \\q\\ are determined using prior knowledge. The prior PDF
+\\f\_{K}(\kappa)\\ is shown below, where \\B(p, q)\\ is the [Beta
+function](https://en.wikipedia.org/wiki/Beta_function).
+
+\\ f\_{K}(\kappa) = \frac{\kappa ^{p - 1}(1 - \kappa)^{q-1}}{B(p, q)} \\
+
+As in the case of regular maximum likelihood estimation, the likelihood
+function is:
+
+\\ f\_{X}(x : \mu, \sigma, \kappa) =\prod\_{i=1}^{n}
+\frac{1}{\sigma}t\_{i}^{-1 - (1/\kappa)} \exp (-t\_{i}^{-1/\kappa}),
+\quad t\_{i} = 1 + \kappa \left(\frac{x\_{i} - \mu }{\sigma } \right) \\
+
+As mentioned previously, we want to maximize the product \\\mathcal{L} =
+f\_{K}(\kappa)f\_{X}(x:\mu ,\sigma ,\kappa)\\. To ensure numerical
+stability, we will maximize \\\ln (\mathcal{L})\\ instead, which has the
+following form:
+
+\\ \begin{aligned} \ln(\mathcal{L}) &= \ln(f\_{K}(\kappa)) +
+\ln(f\_{X}(x:\mu ,\sigma ,\kappa )) \\\[10pt\] \ln(f\_{K}(\kappa)) &=
+(p - 1)\ln \kappa + (q-1) \ln (1 - \kappa) - \ln (B(p, q)) \\\[5pt\]
+\ln(f\_{X}(x:\mu ,\sigma ,\kappa )) &= \sum\_{i=1}^{n} \left\[-\ln
+\sigma - \left(1 + \frac{1}{\kappa }\right) \ln t\_{i} -
+t\_{i}^{-1/\kappa}\right\] \end{aligned} \\
+
+[^1]: Coles, S. (2001). *An introduction to statistical modeling of
+    extreme values*. Springer.
+
+[^2]: Martins, E. S., and Stedinger, J. R. (2000). Generalized
+    maximum-likelihood generalized extreme-value quantile estimators for
+    hydrologic data. Water Resources Research, 36(3), 737–744.

@@ -1,0 +1,190 @@
+# Model Selection
+
+This module selects a statistical model for S-FFA or NS-FFA based on the
+annual maximum series.
+
+- **S-FFA**: A time-invariant probability distribution is selected from
+  the candidate distributions.
+- **NS-FFA**: A distribution is chosen along with a nonstationary
+  structure to capture its evolution over time. In piecewise NS-FFA, the
+  series is segmented into subperiods, each modeled with either
+  time-invariant or time-varying distributions.
+
+The framework uses the **L-moment ratio method** to identify the
+best-fit distribution family by comparing sample L-moments with the
+L-moments of various distribution families.
+
+For NS-FFA, the series is decomposed to isolate its stationary component
+following [Vidrio-Sahagún and He
+(2022)](https://doi.org/10.1016/j.jhydrol.2022.128186). This decomposed
+sample is then used for distribution selection, as in S-FFA.
+
+## An Introduction to L-Moments
+
+**Definition 1**: The **\\k\\-th Order Statistic** of a statistical
+sample is its \\k\\-th smallest value.
+
+**Definition 2**: The **\\r\\-th Population L-moment** \\\lambda\_{r}\\
+is a linear combination of the expectation of the order statistics. Let
+\\X\_{k:n}\\ be the \\k\\-th order statistic from a sample of size
+\\n\\. Then,
+
+\\ \lambda\_{r} = \frac{1}{r} \sum\_{k=0}^{r-1} (-1)^{k} \binom{r-1}{k}
+\mathbb{E}\[X\_{r-k:r}\] \\
+
+**Definition 3**: A **Probability Weighted Moment** (PWM) encodes
+information about a value’s position on the cumulative distribution
+function. The \\r\\-th PWM, denoted \\\beta\_{r}\\, is:
+
+\\ \beta\_{r} = \mathbb{E}\[X \cdot F(X)^{r}\] \\
+
+For an ordered sample \\x\_{1:n} \leq \dots \leq x\_{n:n}\\, the sample
+PWM is often estimated as:
+
+\\ b\_{r} = \frac{1}{n} \sum\_{i=1}^{r} x\_{i:n}
+\left(\frac{i-1}{n-1}\right) ^{r} \\
+
+### Sample L-Moments (from PWMs) and L-Moment Ratios
+
+The first four sample L-moments can be computed as linear combinations
+of the PWMs:
+
+\\ \begin{aligned} l\_{1} &= b\_{0} \\ l\_{2} &= 2b\_{1} - b\_{0} \\
+l\_{3} &= 6b\_{2} - 6b\_{1} + b\_{0} \\ l\_{4} &= 20b\_{3} - 30b\_{2} +
+12b\_{1} - b\_{0} \end{aligned} \\
+
+The L-moments are used to compute the **Sample L-variance** \\t\_{2}\\,
+**Sample L-skewness** \\t\_{3}\\ and the **Sample L-kurtosis**
+\\t\_{4}\\ using the following formulas:
+
+\\ \begin{aligned} t\_{2} &= l\_{2} / l\_{1} \\ t\_{3} &= l\_{3} /
+l\_{2} \\ t\_{4} &= l\_{4} / l\_{2} \end{aligned} \\
+
+Then, we compare these statistics, specifically the L-skewness and
+L-kurtosis to their theoretical values (given
+[here](https://rileywheadon.github.io/ffa-framework/articles/probability-distributions.md))
+using one of three different metrics to select a distribution.
+
+**Note**: Probability distributions with two parameters have constant
+L-skewness \\\tau\_{3}\\ and L-kurtosis \\\tau\_{4}\\ regardless of
+their parameters. The L-skewness and L-kurtosis of probability
+distributions with three parameters is a function of the shape parameter
+\\\kappa\\. The notation \\\tau\_{3}(\kappa)\\ and \\\tau\_{4}(\kappa)\\
+refers to the L-skewness and L-kurtosis *curves* for three parameter
+distributions.
+
+### Example Plot
+
+Shown below are the L-moment curves of the GEV, GLO, GNO, PE3/LP3, and
+WEI distributions as well as the L-moment ratios of the two parameter
+distributions GUM and NOR/LNO. This L-moment diagram depicts the
+“L-distance” selection metric, which compares the euclidian distance
+between the sample and theoretical L-moment ratios. The inset shows that
+the GEV distribution (yellow line) has the closest L-moments to the
+data.
+
+![](../reference/figures/plot-lmom.svg)
+
+## Selection Metrics
+
+### 1. L-Distance
+
+The Euclidean distance between the sample \\(t_3, t_4)\\ and theoretical
+\\(\tau_3, \tau_4)\\ for each candidate distribution. For 3-parameter
+distributions, this is the **minimum** distance along their L-moment
+ratio curve.
+
+### 2. L-Kurtosis
+
+The L-kurtosis method is only used for three-parameter probability
+distributions. First, the shape parameter \\\kappa^{\*}\\ such that
+\\t\_{3} = \tau \_{3}(\kappa ^{\*})\\ is identified. Then, the
+difference between the sample L-kurtosis and the theoretical L-kurtosis
+is computed using the metric \\\|\tau\_{4}(\kappa ^{\*}) - t\_{4} \|\\.
+
+### 3. Z-statistic
+
+The Z-statistic selection metric is calculated as follows (for
+three-parameter distributions):
+
+1.  Fit the four-parameter Kappa (K4D) distribution to the sample.
+
+2.  Generate \\N\_{\text{sim}}\\ bootstrap samples from the fitted K4D
+    distribution.
+
+3.  Calculate the sample L-kurtosis \\t\_{4}^{\[i\]}\\ of each synthetic
+    dataset.
+
+4.  Calculate the bias and standard deviation of the bootstrap
+    distribution:
+
+    \\ B\_{4} = N\_{\text{sim} }^{-1} \sum\_{i = 1}^{N\_{\text{sim} }}
+    \left(t\_{4}^{\[i\]} - t\_{4}^{s}\right) \\
+
+    \\ \sigma \_{4} = \left\[(N\_{\text{sim} } - 1)^{-1}
+    \left\\\sum\_{i - 1}^{N\_{\text{sim} }} \left(t\_{4}^{\[i\]} -
+    t\_{4}^{s}\right)^2 - N\_{\text{sim} } B\_{4}^2\right\\ \right\]
+    ^{\frac{1}{2}} \\
+
+5.  Identify the shape parameter \\\kappa^{\*}\\ such that \\t\_{3} =
+    \tau \_{3}(\kappa ^{\*})\\.
+
+6.  Use the bootstrap distribution to compute the Z-statistic for each
+    distribution:
+
+    \\ z = \frac{\tau\_{4} (\kappa ^{\*}) - t\_{4} + B\_{4} }{ \sigma
+    \_{4}} \\
+
+7.  Choose the distribution with the *smallest* Z-statistic.
+
+## Handling Nonstationarity
+
+When nonstationarity is detected, the annual maximum series is
+decomposed before model selection. We consider three nonstationary
+scenarios that can be identified in EDA:
+
+1.  Trend in mean only.
+2.  Trend in standard deviation only.
+3.  Trend in both mean and standard deviation.
+
+### Decomposition Steps
+
+#### Scenario 1: Trend in mean
+
+1.  Use [Sen’s Trend
+    Estimator](https://rileywheadon.github.io/ffa-framework/articles/eda-trend-ams-mean.html#sens-trend-estimator)
+    to approximate the slope \\b_1\\ and intercept \\b_0\\.
+2.  Detrend: subtract the linear function \\(b\_{1} \cdot
+    \text{Covariate})\\ from the time series, where the *covariate* is a
+    time index calculated using the formula \\(\text{Years} - 1900) /
+    100\\.
+3.  Ensure positivity: if necessary, shift series by adding a constant
+    such that \\\min(\text{data}) = 1\\.
+
+#### Scenario 2: Trend in standard deviation
+
+1.  Generate a time series of standard deviations using the moving
+    windows method.
+
+2.  Use [Sen’s Trend
+    Estimator](https://rileywheadon.github.io/ffa-framework/articles/eda-trend-ams-variability.html#sens-trend-estimator)
+    to identify the slope \\c\_{1}\\ and intercept \\c\_{0}\\ of the
+    trend in the standard deviations.
+
+3.  Normalize the data to have mean \\0\\, then divide out the scale
+    factor \\g\_{t}\\.
+
+    \\ g\_{t} = \frac{(c\_{1} \cdot \text{Covariate} ) + c\_{0}}{c\_{0}}
+    \\
+
+4.  Add back the long-term mean \\\mu\\, and then ensure positivity as
+    in Scenario 1.
+
+#### Scenario 3: Trend in both mean and standard deviation
+
+1.  Remove the linear trend in mean exactly as in Scenario 1.
+2.  On that detrended series, generate a rolling‐window STD series and
+    fit its trend.
+3.  Divide the detrended data by the time-varying scale factor
+    \\g\_{t}\\ (as in Scenario 2).
+4.  Shift to preserve the series mean and ensure positivity.
