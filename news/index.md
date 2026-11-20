@@ -1,5 +1,9 @@
 # Changelog
 
+## ffaframework 0.1.3
+
+- Fix bug causing unwanted plot lines for some graphics drivers.
+
 ## ffaframework 0.1.2
 
 CRAN release: 2025-10-27

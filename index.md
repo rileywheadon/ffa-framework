@@ -86,7 +86,7 @@ edit the system environment variables from the settings menu.
 1.  Clone the GitHub repository by running the following command:
 
     ``` R
-     git clone https://github.com/rileywheadon/ffa-framework.git
+    git clone https://github.com/rileywheadon/ffa-framework.git
     ```
 
 2.  Ensure that `renv` is installed on your machine
@@ -143,7 +143,7 @@ This means that:
   compatible bug fixes
 
 After deciding on an appropriate version bump, create a new commit
-titled “Version X.Y.Z”.
+titled “version X.Y.Z”.
 
 This commit should do the following:
 
