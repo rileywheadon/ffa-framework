@@ -17,3 +17,5 @@
 ^_pkgdown\.yml$
 ^vignettes/articles$
 ^tests/testthat/_snaps$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

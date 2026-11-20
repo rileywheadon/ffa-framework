@@ -133,16 +133,21 @@ Then, fill `cran-comments.md` with the following template:
 ```markdown
 ## Test environments
 
-- Platform: (...)
-- R version: (...)
+| Platform       | R Version |
+| -------------- | --------- |
+| macos-latest   | 4.6.1     |
+| windows-latest | 4.6.1     |
+| ubuntu-latest  | 4.5.3     |
+| ubuntu-latest  | 4.6.1     |
+| ubuntu-latest  | 4.7.0     |
 
 ## R CMD check results
 
-(...) errors | (...) warnings | (...) notes
+0 errors | 0 warnings | 0 notes
 
 ## Reverse dependencies
 
-(...)
+None
 ```
 
 Use the following command to check for reverse dependencies:
