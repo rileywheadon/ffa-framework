@@ -15,7 +15,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/rileywheadon/ffa-framework/blob/master/inst/CITATION)
+[`inst/CITATION`](https://github.com/rileywheadon/ffa-framework/blob/v0.1.3/inst/CITATION)
 
 Vidrio-Sahagún C, Ruschkowski J, He J, Pietroniro A (2024). “A
 practice-oriented framework for stationary and nonstationary flood
