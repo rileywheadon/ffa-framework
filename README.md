@@ -60,15 +60,15 @@ To update the `PATH`, edit the system environment variables from the settings me
 
 ### Development Environment
 
-1. Clone the GitHub repository by running the following command:
+1.  Clone the GitHub repository by running the following command:
 
         git clone https://github.com/rileywheadon/ffa-framework.git
 
-2. Ensure that `renv` is installed on your machine
+2.  Ensure that `renv` is installed on your machine
 
-3. Ensure that the version of R listed in `renv.lock` is installed on your machine
+3.  Ensure that the version of R listed in `renv.lock` is installed on your machine
 
-4. Open a new `R` session and run `renv::restore()` 
+4.  Open a new `R` session and run `renv::restore()`
 
 ### Commonly Used Commands
 
@@ -86,7 +86,7 @@ devtools::document()
 renv::snapshot()
 ```
 
-## Release Documentation 
+## Release Documentation
 
 This section describes the steps required to release a new version of the ffaframework package.
 
@@ -108,7 +108,7 @@ This means that:
 - MINOR version changes (e.g. 1.0.0 to 1.1.0) indicate backwards compatible new functionality
 - PATCH version changes (e.g. 1.0.0 to 1.0.1) indicate backwards compatible bug fixes
 
-After deciding on an appropriate version bump, create a new commit titled "Version X.Y.Z".
+After deciding on an appropriate version bump, create a new commit titled "version X.Y.Z".
 
 This commit should do the following:
 
@@ -172,4 +172,3 @@ git push origin "$VERSION"
 ```
 
 In the GitHub UI, create a new release for the tag. Copy the release notes from `NEWS.md`.
-
