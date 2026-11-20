@@ -115,16 +115,16 @@
 <li><p>Open a terminal and navigate to the directory where you want to install the package.</p></li>
 <li>
 <p>Clone the Github repository by executing the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a> git clone https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>rileywheadon<span class="sc">/</span>ffa<span class="sc">-</span>framework.git</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>git clone https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>rileywheadon<span class="sc">/</span>ffa<span class="sc">-</span>framework.git</span></code></pre></div>
 </li>
 <li>
 <p>Open an <code>R</code> session. Then install and load the <code>devtools</code> package (if not already installed):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a> <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a> <span class="fu">library</span>(devtools)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(devtools)</span></code></pre></div>
 </li>
 <li>
 <p>Install the ‘ffaframework’ package:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a> devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"~/path/to/ffa-package"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"~/path/to/ffa-package"</span>)</span></code></pre></div>
 <p>Replace <code>~/path/to/ffa-package</code> with the path to the cloned directory from step 2.</p>
 </li>
 <li><p>Exit the <code>R</code> session with <code><a href="https://rdrr.io/r/base/quit.html" class="external-link">q()</a></code>. The ‘ffaframework’ package is now installed and ready to use.</p></li>
@@ -137,6 +137,112 @@
 <p>You can check your R version by executing the <code>R --version</code> command in a terminal.</p>
 <p><strong>I just installed R on Windows but the <code>R</code> command doesn’t work.</strong></p>
 <p>Windows users may need to add R to their <code>PATH</code> environment variable. The default location for R is <code>C:\Program Files\R\R-4.5.0\bin</code> (replace “4.5.0” with the version of R you have installed). To update the <code>PATH</code>, edit the system environment variables from the settings menu.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="contributor-documentation">Contributor Documentation<a class="anchor" aria-label="anchor" href="#contributor-documentation"></a>
+</h2>
+<div class="section level3">
+<h3 id="development-environment">Development Environment<a class="anchor" aria-label="anchor" href="#development-environment"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<p>Clone the GitHub repository by running the following command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a> git clone https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>rileywheadon<span class="sc">/</span>ffa<span class="sc">-</span>framework.git</span></code></pre></div>
+</li>
+<li><p>Ensure that <code>renv</code> is installed on your machine</p></li>
+<li><p>Ensure that the version of R listed in <code>renv.lock</code> is installed on your machine</p></li>
+<li><p>Open a new <code>R</code> session and run <code><a href="https://rstudio.github.io/renv/reference/restore.html" class="external-link">renv::restore()</a></code></p></li>
+</ol>
+</div>
+<div class="section level3">
+<h3 id="commonly-used-commands">Commonly Used Commands<a class="anchor" aria-label="anchor" href="#commonly-used-commands"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Test</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">check</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Document</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Update dependencies</span></span>
+<span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/snapshot.html" class="external-link">snapshot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="release-documentation">Release Documentation<a class="anchor" aria-label="anchor" href="#release-documentation"></a>
+</h2>
+<p>This section describes the steps required to release a new version of the ffaframework package.</p>
+<div class="section level3">
+<h3 id="id_1-documentation">1. Documentation<a class="anchor" aria-label="anchor" href="#id_1-documentation"></a>
+</h3>
+<p>Run the following command to regenerate documentation then commit any changes.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_2-version-bump">2. Version Bump<a class="anchor" aria-label="anchor" href="#id_2-version-bump"></a>
+</h3>
+<p>The <code>ffaframework</code> package makes a best effort to adhere to <a href="https://semver.org/" class="external-link">semantic versioning</a>.</p>
+<p>This means that:</p>
+<ul>
+<li>MAJOR version changes (e.g. 1.0.0 to 2.0.0) indicate breaking changes</li>
+<li>MINOR version changes (e.g. 1.0.0 to 1.1.0) indicate backwards compatible new functionality</li>
+<li>PATCH version changes (e.g. 1.0.0 to 1.0.1) indicate backwards compatible bug fixes</li>
+</ul>
+<p>After deciding on an appropriate version bump, create a new commit titled “Version X.Y.Z”.</p>
+<p>This commit should do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Update <code>NEWS.md</code> to contain release notes for the new version</li>
+<li>Bump the version number in the <code>DESCRIPTION</code> file</li>
+</ol>
+</div>
+<div class="section level3">
+<h3 id="id_3-pre-release-checks">3. Pre-Release Checks<a class="anchor" aria-label="anchor" href="#id_3-pre-release-checks"></a>
+</h3>
+<p>Ensure that all jobs in the GitHub Actions R-CMD-check workflow pass successfully for the release commit. Resolve all errors and warnings, and investigate any notes before proceeding. If changes are required, commit them and rerun the workflow.</p>
+</div>
+<div class="section level3">
+<h3 id="id_4-submit-to-cran">4. Submit to CRAN<a class="anchor" aria-label="anchor" href="#id_4-submit-to-cran"></a>
+</h3>
+<p>Run the following R command to create a <code>cran-comments.md</code> file:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_cran_comments</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Then, fill <code>cran-comments.md</code> with the following template:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">## Test environments</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="ss">- </span>Platform: (...)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="ss">- </span>R version: (...)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="fu">## R CMD check results</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>(...) errors | (...) warnings | (...) notes</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="fu">## Reverse dependencies</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>(...)</span></code></pre></div>
+<p>Use the following command to check for reverse dependencies:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/package_dependencies.html" class="external-link">package_dependencies</a></span><span class="op">(</span></span>
+<span>    <span class="st">"ffaframework"</span>,</span>
+<span>    db <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/available.packages.html" class="external-link">available.packages</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    reverse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    recursive <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Finally, run <code>devtools::submit_cran()</code> to submit the new package version.</p>
+<p>The maintainer must confirm the submission by clicking the link in the email from CRAN.</p>
+</div>
+<div class="section level3">
+<h3 id="id_5-create-github-tag-and-release">5. Create GitHub Tag and Release<a class="anchor" aria-label="anchor" href="#id_5-create-github-tag-and-release"></a>
+</h3>
+<p>Do not complete this step until after the new package version has been accepted by CRAN.</p>
+<p>Run the following set of commands to create a Git tag for the version:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">git</span> tag <span class="at">-a</span> <span class="st">"</span><span class="va">$VERSION</span><span class="st">"</span> <span class="st">"</span><span class="va">$COMMIT_HASH</span><span class="st">"</span> <span class="at">-m</span> <span class="st">"Release </span><span class="va">$VERSION</span><span class="st">"</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">git</span> push origin <span class="st">"</span><span class="va">$VERSION</span><span class="st">"</span></span></code></pre></div>
+<p>In the GitHub UI, create a new release for the tag. Copy the release notes from <code>NEWS.md</code>.</p>
 </div>
 </div>
 </div>

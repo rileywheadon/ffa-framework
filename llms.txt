@@ -42,21 +42,21 @@ contain issues.
 3.  Clone the Github repository by executing the following command:
 
     ``` R
-     git clone https://github.com/rileywheadon/ffa-framework.git
+    git clone https://github.com/rileywheadon/ffa-framework.git
     ```
 
 4.  Open an `R` session. Then install and load the `devtools` package
     (if not already installed):
 
     ``` R
-     install.packages("devtools")
-     library(devtools)
+    install.packages("devtools")
+    library(devtools)
     ```
 
 5.  Install the ‘ffaframework’ package:
 
     ``` R
-     devtools::install("~/path/to/ffa-package")
+    devtools::install("~/path/to/ffa-package")
     ```
 
     Replace `~/path/to/ffa-package` with the path to the cloned
@@ -78,6 +78,143 @@ Windows users may need to add R to their `PATH` environment variable.
 The default location for R is `C:\Program Files\R\R-4.5.0\bin` (replace
 “4.5.0” with the version of R you have installed). To update the `PATH`,
 edit the system environment variables from the settings menu.
+
+## Contributor Documentation
+
+### Development Environment
+
+1.  Clone the GitHub repository by running the following command:
+
+    ``` R
+     git clone https://github.com/rileywheadon/ffa-framework.git
+    ```
+
+2.  Ensure that `renv` is installed on your machine
+
+3.  Ensure that the version of R listed in `renv.lock` is installed on
+    your machine
+
+4.  Open a new `R` session and run
+    [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html)
+
+### Commonly Used Commands
+
+``` r
+
+# Test
+devtools::test()
+
+# Check
+devtools::check()
+
+# Document
+devtools::document()
+
+# Update dependencies
+renv::snapshot()
+```
+
+## Release Documentation
+
+This section describes the steps required to release a new version of
+the ffaframework package.
+
+### 1. Documentation
+
+Run the following command to regenerate documentation then commit any
+changes.
+
+``` r
+
+devtools::document()
+```
+
+### 2. Version Bump
+
+The `ffaframework` package makes a best effort to adhere to [semantic
+versioning](https://semver.org/).
+
+This means that:
+
+- MAJOR version changes (e.g. 1.0.0 to 2.0.0) indicate breaking changes
+- MINOR version changes (e.g. 1.0.0 to 1.1.0) indicate backwards
+  compatible new functionality
+- PATCH version changes (e.g. 1.0.0 to 1.0.1) indicate backwards
+  compatible bug fixes
+
+After deciding on an appropriate version bump, create a new commit
+titled “Version X.Y.Z”.
+
+This commit should do the following:
+
+1.  Update `NEWS.md` to contain release notes for the new version
+2.  Bump the version number in the `DESCRIPTION` file
+
+### 3. Pre-Release Checks
+
+Ensure that all jobs in the GitHub Actions R-CMD-check workflow pass
+successfully for the release commit. Resolve all errors and warnings,
+and investigate any notes before proceeding. If changes are required,
+commit them and rerun the workflow.
+
+### 4. Submit to CRAN
+
+Run the following R command to create a `cran-comments.md` file:
+
+``` r
+
+usethis::use_cran_comments()
+```
+
+Then, fill `cran-comments.md` with the following template:
+
+``` markdown
+## Test environments
+
+- Platform: (...)
+- R version: (...)
+
+## R CMD check results
+
+(...) errors | (...) warnings | (...) notes
+
+## Reverse dependencies
+
+(...)
+```
+
+Use the following command to check for reverse dependencies:
+
+``` r
+
+tools::package_dependencies(
+    "ffaframework",
+    db = available.packages(),
+    reverse = TRUE,
+    recursive = FALSE
+)
+```
+
+Finally, run `devtools::submit_cran()` to submit the new package
+version.
+
+The maintainer must confirm the submission by clicking the link in the
+email from CRAN.
+
+### 5. Create GitHub Tag and Release
+
+Do not complete this step until after the new package version has been
+accepted by CRAN.
+
+Run the following set of commands to create a Git tag for the version:
+
+``` bash
+git tag -a "$VERSION" "$COMMIT_HASH" -m "Release $VERSION"
+git push origin "$VERSION"
+```
+
+In the GitHub UI, create a new release for the tag. Copy the release
+notes from `NEWS.md`.
 
 # Package index
 

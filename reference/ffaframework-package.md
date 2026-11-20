@@ -83,6 +83,8 @@ Useful links:
 
 Authors:
 
+- Riley Wheadon <rileywheadon@gmail.com>
+
 - Cuauhtémoc Vidrio-Sahagún <ct.vidrio-sahagun@usask.ca>
 
 - Alain Pietroniro <alain.pietroniro@ucalgary.ca> \[funder\]
