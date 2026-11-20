@@ -66,7 +66,7 @@ plot_sffa_fit <- function(
 	# Plot of data
 	p2 <- ggplot(data_df, aes(x = .data$x, y = .data$y)) +
 		geom_point(color = "dimgray", size = 2.25) + 
-		{ if (show_line) geom_line(color = "dimgray", linewidth = 1) else NULL } +
+		( if (show_line) geom_line(color = "dimgray", linewidth = 1) else NULL ) +
 		scale_y_continuous(limits = y_range) +
 		labs(x = xlabel, y = "", title = title)
 

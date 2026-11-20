@@ -82,7 +82,7 @@ plot_pettitt_test <- function(results, show_line = TRUE, ...) {
 	# Also plot the original flow data and segment means
 	p2 <- ggplot(df, aes(x = .data$year, y = .data$value)) + 
 		geom_point(aes(color = "dimgray"), size = 2.25) +
-		(if (show_line) geom_line(color = "dimgray", linewidth = 1.1) else NULL) + 
+		( if (show_line) geom_line(color = "dimgray", linewidth = 1.1) else NULL ) + 
 		geom_segment(
 			data = segment_df, 
 			aes(x = .data$x, xend = .data$xend, y = .data$y, color = "black"),

@@ -101,7 +101,7 @@ plot_nsffa_fit <- function(
 	# Plot of data
 	p2 <- ggplot(data_df, aes(x = .data$x, y = .data$y)) +
 		geom_point(color = "dimgray", size = 2.25) + 
-		{ if (show_line) geom_line(color = "dimgray", linewidth = 1) else NULL } +
+		( if (show_line) geom_line(color = "dimgray", linewidth = 1) else NULL ) +
 		geom_vline(
 			data = vlines_df,
 			aes(xintercept = .data$x, color = .data$slice),

@@ -94,27 +94,28 @@ plot_ams_data <- function(
 			color = "dimgray",
 			size = 2.25
 		) +
-		geom_line(
+		( if (show_line) geom_line(
 			aes(y = .data$y_data),
 			color = "dimgray",
-			linewidth = if (show_line) 1 else 0
-		) +
-		geom_line(
+			linewidth = 1
+		) else NULL ) +
+		( if (plot_mean != "None") geom_line(
 			aes(y = .data$y_trend),
 			color = if (plot_mean == "Constant") "black" else "blue",
-			linewidth = if (plot_mean == "None") 0 else 1.2
-		) +
-		geom_line(
+			linewidth = 1.2
+		) else NULL ) +
+		( if (plot_variability != "None") geom_line(
 			aes(y = .data$y_upper),
 			color = if (plot_variability == "Constant") "black" else "blue",
 			linetype = "dashed",
-			linewidth = if (plot_variability == "None") 0 else 1.2
-		) + geom_line(
+			linewidth = 1.2
+		) else NULL ) + 
+		( if (plot_variability != "None") geom_line(
 			aes(y = .data$y_lower),
 			color = if (plot_variability == "Constant") "black" else "blue",
 			linetype = "dashed",
-			linewidth = if (plot_variability == "None") 0 else 1.2
-		) +
+			linewidth = 1.2
+		) else NULL ) +
 		labs(title = title, x = xlabel, y = ylabel)
 
 	# Add scales and theme
